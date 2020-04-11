@@ -1,0 +1,6 @@
+framework module Pods_MyCircle {
+  umbrella header "Pods-MyCircle-umbrella.h"
+
+  export *
+  module * { export * }
+}
