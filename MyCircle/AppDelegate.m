@@ -11,6 +11,9 @@
 #import "MINGCiecleVideoListController.h"
 #import "MINGProfileViewController.h"
 #import "MINGVideoFeedViewController.h"
+#import "MINGCiecleVideoListController.h"
+
+#import "MINGCircleVideoListViewModel.h"
 
 @interface AppDelegate ()
 
@@ -26,13 +29,22 @@
     UITabBarController *controller = [[UITabBarController alloc] init];
     controller.view.backgroundColor = [UIColor whiteColor];
     
+    UINavigationController *indexNavigationViewController = [[UINavigationController alloc] initWithRootViewController:controller];
+
     // tab bar controllers
-    MINGVideoFeedViewController *videoFeedViewController = [[MINGVideoFeedViewController alloc] init];
-    videoFeedViewController.view.backgroundColor = [UIColor lightGrayColor];
-    videoFeedViewController.tabBarItem.title = @"首页";
+    // 首页
+    MINGCircleVideoListViewModel *videoListViewModel = [[MINGCircleVideoListViewModel alloc] init];
+    MINGCiecleVideoListController *videoListViewController = [[MINGCiecleVideoListController alloc] initWithViewModel:videoListViewModel];
+    videoListViewController.view.backgroundColor = [UIColor lightGrayColor];
+    videoListViewController.tabBarItem.title = @"首页";
+    videoListViewController.tabBarItem.image = [UIImage imageNamed:@"video"];
+    videoListViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"video_active"];
     
-    [controller setViewControllers:@[videoFeedViewController]];
-    self.window.rootViewController = controller;
+
+    
+    [controller setViewControllers:@[videoListViewController]];
+    
+    self.window.rootViewController = indexNavigationViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }

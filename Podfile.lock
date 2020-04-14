@@ -17,12 +17,16 @@ PODS:
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
+  - Mantle (2.1.1):
+    - Mantle/extobjc (= 2.1.1)
+  - Mantle/extobjc (2.1.1)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - MJRefresh (3.4.1)
   - ReactiveObjC (3.1.1)
-  - SDWebImage (5.7.1):
-    - SDWebImage/Core (= 5.7.1)
-  - SDWebImage/Core (5.7.1)
+  - SDWebImage (5.7.2):
+    - SDWebImage/Core (= 5.7.2)
+  - SDWebImage/Core (5.7.2)
   - TZImagePickerController (3.3.1)
   - WMPlayer (5.0.0):
     - Masonry
@@ -30,6 +34,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.2)
   - IGListKit (~> 4.0)
+  - Mantle (~> 2.1)
+  - MBProgressHUD (~> 1.2)
   - MJRefresh (~> 3.4)
   - ReactiveObjC (~> 3.1)
   - SDWebImage (~> 5.6)
@@ -37,11 +43,13 @@ DEPENDENCIES:
   - WMPlayer (~> 5.0)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - IGListDiffKit
     - IGListKit
+    - Mantle
     - Masonry
+    - MBProgressHUD
     - MJRefresh
     - ReactiveObjC
     - SDWebImage
@@ -52,13 +60,15 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  Mantle: 35238ae6f2e2b2d474fa7b67fee82a59fea71915
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SDWebImage: 5d4cf6afccd9ac1d2ee701ed0c4917cbb1b80536
+  SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
   TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
   WMPlayer: a914f80ed5dca7cd9e3a94ec07a2b02eec8c15c0
 
-PODFILE CHECKSUM: 9ec0029bb5f89dcb878de5220cd89fd98a9cad72
+PODFILE CHECKSUM: 01f05ed4213aa90089ee51e8efbf1147fff99c62
 
 COCOAPODS: 1.9.1
