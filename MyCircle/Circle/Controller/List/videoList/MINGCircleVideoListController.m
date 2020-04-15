@@ -6,7 +6,7 @@
 //  Copyright © 2020 周汉明. All rights reserved.
 //
 
-#import "MINGCiecleVideoListController.h"
+#import "MINGCircleVideoListController.h"
 #import "MINGVideoCellView.h"
 #import "MINGCircleVideoListViewModel.h"
 #import "MINGVideoDetailViewModel.h"
@@ -19,7 +19,7 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 
-@interface MINGCiecleVideoListController ()
+@interface MINGCircleVideoListController ()
 <
 UITableViewDelegate,
 UITableViewDataSource,
@@ -33,7 +33,7 @@ WMPlayerDelegate
 
 @end
 
-@implementation MINGCiecleVideoListController
+@implementation MINGCircleVideoListController
 
 #pragma mark - life circle
 - (instancetype)initWithViewModel:(MINGCircleVideoListViewModel *)viewModel

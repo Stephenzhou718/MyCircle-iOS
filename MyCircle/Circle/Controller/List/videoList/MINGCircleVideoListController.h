@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MINGCiecleVideoListController : UIViewController
+@interface MINGCircleVideoListController : UIViewController
 
 - (instancetype)initWithViewModel:(MINGCircleVideoListViewModel *)viewModel;
 

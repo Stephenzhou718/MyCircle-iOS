@@ -8,10 +8,9 @@
 
 #import "AppDelegate.h"
 
-#import "MINGCiecleVideoListController.h"
+#import "MINGCircleVideoListController.h"
 #import "MINGProfileViewController.h"
 #import "MINGVideoFeedViewController.h"
-#import "MINGCiecleVideoListController.h"
 #import "MINGCirclePageViewController.h"
 #import "XLNavigationController.h"
 
@@ -34,7 +33,7 @@
     // tab bar controllers
     // 首页
     MINGCircleVideoListViewModel *videoListViewModel = [[MINGCircleVideoListViewModel alloc] init];
-    MINGCiecleVideoListController *videoListViewController = [[MINGCiecleVideoListController alloc] initWithViewModel:videoListViewModel];
+    MINGCircleVideoListController *videoListViewController = [[MINGCircleVideoListController alloc] initWithViewModel:videoListViewModel];
     videoListViewController.view.backgroundColor = [UIColor lightGrayColor];
     videoListViewController.tabBarItem.title = @"首页";
     videoListViewController.tabBarItem.image = [UIImage imageNamed:@"video"];

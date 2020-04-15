@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) RACCommand *refreshCommand;
 @property (nonatomic, strong) RACCommand *loadMoreCommand;
 
+- (instancetype)initWithCircleId:(NSString *)circleId;
+
 @end
 
 NS_ASSUME_NONNULL_END

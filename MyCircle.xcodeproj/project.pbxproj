@@ -17,7 +17,7 @@
 		29786E0A24430F2700F9C3C7 /* MINGVideoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29786E0924430F2700F9C3C7 /* MINGVideoCellView.m */; };
 		29786E1B244348AB00F9C3C7 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 29786E1A244348AB00F9C3C7 /* UIColor+Hex.m */; };
 		29911F652425FCEE00E950F6 /* MINGVideoFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F642425FCEE00E950F6 /* MINGVideoFeedViewController.m */; };
-		29911F682425FD0F00E950F6 /* MINGCiecleVideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F672425FD0F00E950F6 /* MINGCiecleVideoListController.m */; };
+		29911F682425FD0F00E950F6 /* MINGCircleVideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F672425FD0F00E950F6 /* MINGCircleVideoListController.m */; };
 		29911F6B2425FD1C00E950F6 /* MINGProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */; };
 		299F39EA2444637300D1B918 /* MINGVideoDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */; };
 		299F39ED244465B600D1B918 /* MINGCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F39EC244465B600D1B918 /* MINGCommentItem.m */; };
@@ -40,12 +40,16 @@
 		299F3A332446AF5E00D1B918 /* MINGCircleSelectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F3A322446AF5E00D1B918 /* MINGCircleSelectionViewModel.m */; };
 		299F3A362446B5E100D1B918 /* MINGCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F3A352446B5E100D1B918 /* MINGCircle.m */; };
 		299F3A482446FEF200D1B918 /* XLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F3A472446FEF200D1B918 /* XLNavigationController.m */; };
+		299F3AA82447238A00D1B918 /* MINGCircleDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F3AA72447238A00D1B918 /* MINGCircleDetailController.m */; };
+		299F3AAB244723DC00D1B918 /* MINGCircleDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F3AAA244723DC00D1B918 /* MINGCircleDetailViewModel.m */; };
 		29AC201B2423456900641337 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AC201A2423456900641337 /* AppDelegate.m */; };
 		29AC20212423456900641337 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AC20202423456900641337 /* ViewController.m */; };
 		29AC20242423456900641337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC20222423456900641337 /* Main.storyboard */; };
 		29AC20262423456A00641337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29AC20252423456A00641337 /* Assets.xcassets */; };
 		29AC20292423456A00641337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC20272423456A00641337 /* LaunchScreen.storyboard */; };
 		29AC202C2423456A00641337 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AC202B2423456A00641337 /* main.m */; };
+		29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */; };
+		29CF68E8244737A20066AECF /* MINGCircleTweetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */; };
 		FB6D2C860821F555019D8EC1 /* Pods_MyCircle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81522563C3DE8872E16FE28 /* Pods_MyCircle.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +74,8 @@
 		29786E1A244348AB00F9C3C7 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		29911F632425FCEE00E950F6 /* MINGVideoFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideoFeedViewController.h; sourceTree = "<group>"; };
 		29911F642425FCEE00E950F6 /* MINGVideoFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGVideoFeedViewController.m; sourceTree = "<group>"; };
-		29911F662425FD0F00E950F6 /* MINGCiecleVideoListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCiecleVideoListController.h; sourceTree = "<group>"; };
-		29911F672425FD0F00E950F6 /* MINGCiecleVideoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCiecleVideoListController.m; sourceTree = "<group>"; };
+		29911F662425FD0F00E950F6 /* MINGCircleVideoListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleVideoListController.h; sourceTree = "<group>"; };
+		29911F672425FD0F00E950F6 /* MINGCircleVideoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleVideoListController.m; sourceTree = "<group>"; };
 		29911F692425FD1C00E950F6 /* MINGProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileViewController.h; sourceTree = "<group>"; };
 		29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileViewController.m; sourceTree = "<group>"; };
 		299F39E82444637300D1B918 /* MINGVideoDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideoDetailViewModel.h; sourceTree = "<group>"; };
@@ -116,6 +120,10 @@
 		299F3A352446B5E100D1B918 /* MINGCircle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircle.m; sourceTree = "<group>"; };
 		299F3A462446FEF200D1B918 /* XLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLNavigationController.h; sourceTree = "<group>"; };
 		299F3A472446FEF200D1B918 /* XLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLNavigationController.m; sourceTree = "<group>"; };
+		299F3AA62447238A00D1B918 /* MINGCircleDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleDetailController.h; sourceTree = "<group>"; };
+		299F3AA72447238A00D1B918 /* MINGCircleDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleDetailController.m; sourceTree = "<group>"; };
+		299F3AA9244723DC00D1B918 /* MINGCircleDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleDetailViewModel.h; sourceTree = "<group>"; };
+		299F3AAA244723DC00D1B918 /* MINGCircleDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleDetailViewModel.m; sourceTree = "<group>"; };
 		29AC20162423456900641337 /* MyCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29AC20192423456900641337 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		29AC201A2423456900641337 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +134,10 @@
 		29AC20282423456A00641337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29AC202A2423456A00641337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29AC202B2423456A00641337 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29CF68E0244736DD0066AECF /* MINGCircleTweetsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsListViewModel.h; sourceTree = "<group>"; };
+		29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsListViewModel.m; sourceTree = "<group>"; };
+		29CF68E6244737A20066AECF /* MINGCircleTweetsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsListViewController.h; sourceTree = "<group>"; };
+		29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsListViewController.m; sourceTree = "<group>"; };
 		7EA8733D26826145673529CF /* Pods-MyCircle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCircle.release.xcconfig"; path = "Target Support Files/Pods-MyCircle/Pods-MyCircle.release.xcconfig"; sourceTree = "<group>"; };
 		A81522563C3DE8872E16FE28 /* Pods_MyCircle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCircle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B034439BCF1AFA781D8F5B47 /* Pods-MyCircle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCircle.debug.xcconfig"; path = "Target Support Files/Pods-MyCircle/Pods-MyCircle.debug.xcconfig"; sourceTree = "<group>"; };
@@ -252,8 +264,8 @@
 		299F39E22444622500D1B918 /* videoList */ = {
 			isa = PBXGroup;
 			children = (
-				29911F662425FD0F00E950F6 /* MINGCiecleVideoListController.h */,
-				29911F672425FD0F00E950F6 /* MINGCiecleVideoListController.m */,
+				29911F662425FD0F00E950F6 /* MINGCircleVideoListController.h */,
+				29911F672425FD0F00E950F6 /* MINGCircleVideoListController.m */,
 			);
 			path = videoList;
 			sourceTree = "<group>";
@@ -261,6 +273,8 @@
 		299F39E32444623800D1B918 /* tweetsList */ = {
 			isa = PBXGroup;
 			children = (
+				29CF68E6244737A20066AECF /* MINGCircleTweetsListViewController.h */,
+				29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */,
 			);
 			path = tweetsList;
 			sourceTree = "<group>";
@@ -279,6 +293,8 @@
 			children = (
 				299F39E72444626300D1B918 /* TweetsDetail */,
 				299F39E62444625D00D1B918 /* VideoDetail */,
+				299F3AA62447238A00D1B918 /* MINGCircleDetailController.h */,
+				299F3AA72447238A00D1B918 /* MINGCircleDetailController.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -354,6 +370,8 @@
 			children = (
 				2914ECBC2441B91C00164809 /* MINGCircleVideoListViewModel.h */,
 				2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */,
+				29CF68E0244736DD0066AECF /* MINGCircleTweetsListViewModel.h */,
+				29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -363,6 +381,8 @@
 			children = (
 				299F39E82444637300D1B918 /* MINGVideoDetailViewModel.h */,
 				299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */,
+				299F3AA9244723DC00D1B918 /* MINGCircleDetailViewModel.h */,
+				299F3AAA244723DC00D1B918 /* MINGCircleDetailViewModel.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -553,6 +573,7 @@
 				299F39FD2445B30800D1B918 /* MINGTools.m in Sources */,
 				299F39F42445651F00D1B918 /* MINGCommentViewModel.m in Sources */,
 				299F39ED244465B600D1B918 /* MINGCommentItem.m in Sources */,
+				29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */,
 				299F3A482446FEF200D1B918 /* XLNavigationController.m in Sources */,
 				2914ECB82441B46100164809 /* MINGTweetsDetailViewController.m in Sources */,
 				29AC20212423456900641337 /* ViewController.m in Sources */,
@@ -576,13 +597,16 @@
 				299F39FA244590BC00D1B918 /* MINGComment.m in Sources */,
 				2914ECBE2441B91C00164809 /* MINGCircleVideoListViewModel.m in Sources */,
 				29786E062443085E00F9C3C7 /* MINGVideoItem.m in Sources */,
+				299F3AAB244723DC00D1B918 /* MINGCircleDetailViewModel.m in Sources */,
 				299F39F72445669D00D1B918 /* MINGCommentCell.m in Sources */,
 				29AC201B2423456900641337 /* AppDelegate.m in Sources */,
+				29CF68E8244737A20066AECF /* MINGCircleTweetsListViewController.m in Sources */,
 				29AC202C2423456A00641337 /* main.m in Sources */,
+				299F3AA82447238A00D1B918 /* MINGCircleDetailController.m in Sources */,
 				299F3A0124469D6800D1B918 /* MINGCirclePageViewController.m in Sources */,
 				2914ECB52441B44800164809 /* MINGVideoDetailViewController.m in Sources */,
 				299F3A122446A7D100D1B918 /* XLPageViewController.m in Sources */,
-				29911F682425FD0F00E950F6 /* MINGCiecleVideoListController.m in Sources */,
+				29911F682425FD0F00E950F6 /* MINGCircleVideoListController.m in Sources */,
 				299F3A162446A7D100D1B918 /* XLPageTitleCell.m in Sources */,
 				2914ECC12441B94C00164809 /* MINGVideo.m in Sources */,
 				299F3A132446A7D100D1B918 /* XLPageSegmentedTitleView.m in Sources */,

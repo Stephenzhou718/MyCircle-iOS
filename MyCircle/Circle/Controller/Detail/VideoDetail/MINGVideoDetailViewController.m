@@ -81,17 +81,15 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:YES];
-}
-
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self.player play];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

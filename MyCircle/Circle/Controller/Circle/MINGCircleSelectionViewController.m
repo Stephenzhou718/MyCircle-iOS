@@ -9,6 +9,8 @@
 #import "MINGCircleSelectionViewController.h"
 #import "MINGCircleSelectionCell.h"
 #import "XLNavigationController.h"
+#import "MINGCircleDetailViewModel.h"
+#import "MINGCircleDetailController.h"
 
 #import <Masonry/Masonry.h>
 #import <MJRefresh/MJRefresh.h>
@@ -81,6 +83,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    MINGCircleItem *circleItem = [self.viewModel.circleItems objectAtIndex:indexPath.row];
+    MINGCircleDetailViewModel *viewModel = [[MINGCircleDetailViewModel alloc] initWithCircleItem:circleItem];
+    MINGCircleDetailController *controller = [[MINGCircleDetailController alloc] initWithViewModel:viewModel];
+    [controller.navigationItem setTitle:@"圈子"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

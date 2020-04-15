@@ -15,6 +15,7 @@
 
 @property (nonatomic, assign) NSInteger offset;
 @property (nonatomic, assign) NSInteger limit;
+@property (nonatomic, copy) NSString *circleId;
 
 @end
 
@@ -33,6 +34,16 @@
     return self;
 }
 
+- (instancetype)initWithCircleId:(NSString *)circleId
+{
+    self = [super init];
+    if (self) {
+        self.offset = 0;
+        self.limit = 6;
+        self.circleId = circleId;
+    }
+    return self;
+}
 
 #pragma mark - lazy load
 
@@ -51,6 +62,16 @@
                 
                 // 请求
                 NSString *url = @"http://127.0.0.1:8080/index";
+                
+                if (self.circleId) {
+                    params = @{
+                        @"offset" : @0,
+                        @"limit" : @(self.limit),
+                        @"circleId" : self.circleId
+                    };
+                    url = @"http://127.0.0.1:8080/circle/videos/";
+                }
+                
                 url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"#%^{}\"[]|\\<> "].invertedSet];
                 [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
                     
@@ -96,6 +117,15 @@
                 };
                 // 请求
                 NSString *url = @"http://127.0.0.1:8080/index";
+        
+                if (self.circleId) {
+                    params = @{
+                        @"offset" : @(self.offset),
+                        @"limit" : @(self.limit),
+                        @"circleId" : self.circleId
+                    };
+                    url = @"http://127.0.0.1:8080/circle/videos/";
+                }
                 url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"#%^{}\"[]|\\<> "].invertedSet];
                 [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
                     
