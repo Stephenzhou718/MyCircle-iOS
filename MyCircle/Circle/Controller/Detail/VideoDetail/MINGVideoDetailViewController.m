@@ -82,15 +82,19 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self.player play];
-    [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
