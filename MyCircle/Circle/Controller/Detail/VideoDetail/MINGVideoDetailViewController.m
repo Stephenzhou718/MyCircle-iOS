@@ -532,7 +532,7 @@
 {
     if (!_commentInputView) {
         _commentInputView = [[UITextView alloc] init];
-        _commentInputView.backgroundColor = [UIColor colorWithHexString:@"FFFFE0"];
+        _commentInputView.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
         _commentInputView.layer.cornerRadius = 5;
         _commentInputView.layer.masksToBounds = YES;
         _commentInputView.returnKeyType = UIReturnKeyDefault;

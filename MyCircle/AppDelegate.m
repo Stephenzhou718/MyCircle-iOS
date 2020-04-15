@@ -12,6 +12,8 @@
 #import "MINGProfileViewController.h"
 #import "MINGVideoFeedViewController.h"
 #import "MINGCiecleVideoListController.h"
+#import "MINGCirclePageViewController.h"
+#import "XLNavigationController.h"
 
 #import "MINGCircleVideoListViewModel.h"
 
@@ -28,8 +30,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UITabBarController *controller = [[UITabBarController alloc] init];
     controller.view.backgroundColor = [UIColor whiteColor];
-    
-    UINavigationController *indexNavigationViewController = [[UINavigationController alloc] initWithRootViewController:controller];
 
     // tab bar controllers
     // 首页
@@ -40,9 +40,15 @@
     videoListViewController.tabBarItem.image = [UIImage imageNamed:@"video"];
     videoListViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"video_active"];
     
-
+    // 圈子
+    MINGCirclePageViewController *circlePageViewController = [MINGCirclePageViewController new];
+    circlePageViewController.tabBarItem.title = @"圈子";
+    circlePageViewController.tabBarItem.image = [UIImage imageNamed:@"circle"];
+    circlePageViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"circle_active"];
     
-    [controller setViewControllers:@[videoListViewController]];
+    
+    [controller setViewControllers:@[videoListViewController, circlePageViewController]];
+    XLNavigationController *indexNavigationViewController = [[XLNavigationController alloc] initWithRootViewController:controller];
     
     self.window.rootViewController = indexNavigationViewController;
     [self.window makeKeyAndVisible];
