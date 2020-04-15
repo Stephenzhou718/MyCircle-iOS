@@ -156,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				299F39FE24469D4200D1B918 /* Circle */,
-				299F39EE244564E300D1B918 /* Comment */,
 				299F39E52444625400D1B918 /* Detail */,
 				299F39E42444624900D1B918 /* List */,
 			);
@@ -166,14 +165,10 @@
 		2914ECBA2441B77900164809 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2914ECBC2441B91C00164809 /* MINGCircleVideoListViewModel.h */,
-				2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */,
-				299F39E82444637300D1B918 /* MINGVideoDetailViewModel.h */,
-				299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */,
-				299F3A0224469D8B00D1B918 /* MINGCirclePageViewModel.h */,
-				299F3A0324469D8B00D1B918 /* MINGCirclePageViewModel.m */,
-				299F3A312446AF5E00D1B918 /* MINGCircleSelectionViewModel.h */,
-				299F3A322446AF5E00D1B918 /* MINGCircleSelectionViewModel.m */,
+				299F3AA5244722E000D1B918 /* Circle */,
+				299F3AA4244722B900D1B918 /* Detail */,
+				299F3AA3244722A900D1B918 /* List */,
+				299F3AA22447228A00D1B918 /* Comment */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -202,6 +197,10 @@
 		29786E0724430F0100F9C3C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				299F39EF2445650A00D1B918 /* MINGCommentView.h */,
+				299F39F02445650A00D1B918 /* MINGCommentView.m */,
+				299F39F52445669C00D1B918 /* MINGCommentCell.h */,
+				299F39F62445669C00D1B918 /* MINGCommentCell.m */,
 				29786E0824430F2700F9C3C7 /* MINGVideoCellView.h */,
 				29786E0924430F2700F9C3C7 /* MINGVideoCellView.m */,
 				299F3A2B2446ABE300D1B918 /* MINGCircleSelectionCell.h */,
@@ -302,19 +301,6 @@
 			path = TweetsDetail;
 			sourceTree = "<group>";
 		};
-		299F39EE244564E300D1B918 /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-				299F39EF2445650A00D1B918 /* MINGCommentView.h */,
-				299F39F02445650A00D1B918 /* MINGCommentView.m */,
-				299F39F22445651F00D1B918 /* MINGCommentViewModel.h */,
-				299F39F32445651F00D1B918 /* MINGCommentViewModel.m */,
-				299F39F52445669C00D1B918 /* MINGCommentCell.h */,
-				299F39F62445669C00D1B918 /* MINGCommentCell.m */,
-			);
-			path = Comment;
-			sourceTree = "<group>";
-		};
 		299F39FE24469D4200D1B918 /* Circle */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +338,44 @@
 				299F3A472446FEF200D1B918 /* XLNavigationController.m */,
 			);
 			path = XLNavigationViewController;
+			sourceTree = "<group>";
+		};
+		299F3AA22447228A00D1B918 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				299F39F22445651F00D1B918 /* MINGCommentViewModel.h */,
+				299F39F32445651F00D1B918 /* MINGCommentViewModel.m */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		299F3AA3244722A900D1B918 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2914ECBC2441B91C00164809 /* MINGCircleVideoListViewModel.h */,
+				2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		299F3AA4244722B900D1B918 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				299F39E82444637300D1B918 /* MINGVideoDetailViewModel.h */,
+				299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		299F3AA5244722E000D1B918 /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				299F3A0224469D8B00D1B918 /* MINGCirclePageViewModel.h */,
+				299F3A0324469D8B00D1B918 /* MINGCirclePageViewModel.m */,
+				299F3A312446AF5E00D1B918 /* MINGCircleSelectionViewModel.h */,
+				299F3A322446AF5E00D1B918 /* MINGCircleSelectionViewModel.m */,
+			);
+			path = Circle;
 			sourceTree = "<group>";
 		};
 		29AC200D2423456900641337 = {
