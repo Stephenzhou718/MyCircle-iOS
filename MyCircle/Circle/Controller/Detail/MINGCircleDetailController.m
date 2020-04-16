@@ -63,7 +63,24 @@ XLPageViewControllerDataSrouce
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
+    @weakify(self)
+    [[self.viewModel.getCircleMembersCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        if (self.viewModel.circleMembers.count >= 1) {
+            [self.circleMemberOneView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.circleMembers[0].user.headUrl]];
+        }
+        if (self.viewModel.circleMembers.count >= 2) {
+            [self.circleMemberTwoView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.circleMembers[1].user.headUrl]];
+        }
+        if (self.viewModel.circleMembers.count >= 3) {
+            [self.circleMemberThreeView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.circleMembers[2].user.headUrl]];
+        }
+    
+        self.circleMemberCountLabel.text = [NSString stringWithFormat:@"共有 %@ 名圈友", @(self.viewModel.circleMembers.count)];
+    }];
+    [self.viewModel.getCircleMembersCommand execute:nil];
+    
 }
 
 - (void)loadData
@@ -115,8 +132,8 @@ XLPageViewControllerDataSrouce
         make.width.and.height.greaterThanOrEqualTo(@0);
     }];
     [self.circleMembersView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.circleMemberCountLabel).offset(8);
-        make.leading.equalTo(@100);
+        make.top.equalTo(self.circleMemberCountLabel.mas_bottom).offset(8);
+        make.leading.equalTo(self.infoView).offset(100);
         make.height.equalTo(@40);
         make.width.equalTo(@100);
     }];
@@ -124,32 +141,35 @@ XLPageViewControllerDataSrouce
         make.leading.equalTo(self.circleMembersView.mas_trailing).offset(40);
         make.centerY.equalTo(self.circleMemberCountLabel);
         make.width.equalTo(@114);
-        make.height.equalTo(@40);
+        make.height.equalTo(@30);
     }];
     [self.descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.infoView).offset(30);
         make.trailing.equalTo(self.infoView).offset(30);
-        make.bottom.equalTo(self.infoView).offset(3);
-        make.top.lessThanOrEqualTo(self.joinCircleButton.mas_bottom);
+//        make.bottom.equalTo(self.infoView).offset(3);
+        make.top.equalTo(self.circleMembersView.mas_bottom).offset(3);
     }];
     
-    [self.circleMembersView addSubview:self.circleMemberOneView];
-    [self.circleMembersView addSubview:self.circleMemberTwoView];
     [self.circleMembersView addSubview:self.circleMemberThreeView];
+    [self.circleMembersView addSubview:self.circleMemberTwoView];
+    [self.circleMembersView addSubview:self.circleMemberOneView];
+    
+    
     
     [self.circleMemberOneView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.leading.equalTo(self.circleMembersView);
-        make.width.and.height.equalTo(@40);
+        make.centerY.equalTo(self.circleMembersView);
+        make.leading.equalTo(self.circleMembersView);
+        make.width.and.height.equalTo(@30);
     }];
     [self.circleMemberTwoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.circleMembersView);
         make.leading.equalTo(self.circleMembersView).offset(30);
-        make.width.and.height.equalTo(@40);
+        make.width.and.height.equalTo(@30);
     }];
     [self.circleMemberThreeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.circleMembersView);
         make.leading.equalTo(self.circleMembersView).offset(60);
-        make.width.and.height.equalTo(@40);
+        make.width.and.height.equalTo(@30);
     }];
     
     [self addChildViewController:self.pageViewController];
@@ -273,6 +293,8 @@ XLPageViewControllerDataSrouce
 {
     if (!_circleMemberOneView) {
         _circleMemberOneView = [UIImageView new];
+        _circleMemberOneView.layer.cornerRadius = 15;
+        _circleMemberOneView.layer.masksToBounds = YES;
         _circleMemberOneView.userInteractionEnabled = YES;
     }
     return _circleMemberOneView;
@@ -282,6 +304,8 @@ XLPageViewControllerDataSrouce
 {
     if (!_circleMemberTwoView) {
         _circleMemberTwoView = [UIImageView new];
+        _circleMemberTwoView.layer.cornerRadius = 15;
+        _circleMemberTwoView.layer.masksToBounds = YES;
         _circleMemberTwoView.userInteractionEnabled = YES;
     }
     return _circleMemberTwoView;
@@ -291,6 +315,8 @@ XLPageViewControllerDataSrouce
 {
     if (!_circleMemberThreeView) {
         _circleMemberThreeView = [UIImageView new];
+        _circleMemberThreeView.layer.cornerRadius = 15;
+        _circleMemberThreeView.layer.masksToBounds = YES;
         _circleMemberThreeView.userInteractionEnabled = YES;
     }
     return _circleMemberThreeView;

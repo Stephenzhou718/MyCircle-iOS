@@ -21,6 +21,7 @@
 		29911F652425FCEE00E950F6 /* MINGVideoFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F642425FCEE00E950F6 /* MINGVideoFeedViewController.m */; };
 		29911F682425FD0F00E950F6 /* MINGCircleVideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F672425FD0F00E950F6 /* MINGCircleVideoListController.m */; };
 		29911F6B2425FD1C00E950F6 /* MINGProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */; };
+		299E0BEA244857CC0017A97A /* MINGUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 299E0BE9244857CC0017A97A /* MINGUserItem.m */; };
 		299F39EA2444637300D1B918 /* MINGVideoDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */; };
 		299F39ED244465B600D1B918 /* MINGCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F39EC244465B600D1B918 /* MINGCommentItem.m */; };
 		299F39F12445650A00D1B918 /* MINGCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F39F02445650A00D1B918 /* MINGCommentView.m */; };
@@ -86,6 +87,8 @@
 		29911F672425FD0F00E950F6 /* MINGCircleVideoListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleVideoListController.m; sourceTree = "<group>"; };
 		29911F692425FD1C00E950F6 /* MINGProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileViewController.h; sourceTree = "<group>"; };
 		29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileViewController.m; sourceTree = "<group>"; };
+		299E0BE8244857CC0017A97A /* MINGUserItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGUserItem.h; sourceTree = "<group>"; };
+		299E0BE9244857CC0017A97A /* MINGUserItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGUserItem.m; sourceTree = "<group>"; };
 		299F39E82444637300D1B918 /* MINGVideoDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideoDetailViewModel.h; sourceTree = "<group>"; };
 		299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGVideoDetailViewModel.m; sourceTree = "<group>"; };
 		299F39EB244465B600D1B918 /* MINGCommentItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCommentItem.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				296036182447F80C008C9A50 /* MINGTweets.m */,
 				2960361A2447F81B008C9A50 /* MINGTweetsItem.h */,
 				2960361B2447F81B008C9A50 /* MINGTweetsItem.m */,
+				299E0BE8244857CC0017A97A /* MINGUserItem.h */,
+				299E0BE9244857CC0017A97A /* MINGUserItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				29AC20212423456900641337 /* ViewController.m in Sources */,
 				299F3A142446A7D100D1B918 /* XLPageBasicTitleView.m in Sources */,
 				299F3A302446AE3F00D1B918 /* MINGCircleItem.m in Sources */,
+				299E0BEA244857CC0017A97A /* MINGUserItem.m in Sources */,
 				29911F6B2425FD1C00E950F6 /* MINGProfileViewController.m in Sources */,
 				29786E032443074900F9C3C7 /* MINGUser.m in Sources */,
 				299F3A362446B5E100D1B918 /* MINGCircle.m in Sources */,

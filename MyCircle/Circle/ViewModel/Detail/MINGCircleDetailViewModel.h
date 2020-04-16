@@ -8,15 +8,19 @@
 
 #import "MINGCircleItem.h"
 #import "MINGUser.h"
+#import "MINGUserItem.h"
 
 #import <UIKit/UIKit.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MINGCircleDetailViewModel : NSObject
 
 @property (nonatomic, strong) MINGCircleItem *circleItem;
-@property (nonatomic, strong) NSMutableArray<MINGUser *> *circleMenbers;
+@property (nonatomic, strong) NSMutableArray<MINGUserItem *> *circleMembers;
+
+@property (nonatomic, strong) RACCommand *getCircleMembersCommand;
 
 - (instancetype)initWithCircleItem:(MINGCircleItem *)circleItem;
 
