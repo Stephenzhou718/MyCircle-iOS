@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *headUrl;
+@property (nonatomic, copy) NSString *signature;
 
 @end
 

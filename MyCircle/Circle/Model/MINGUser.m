@@ -15,7 +15,8 @@
     return @{
         @"username" : @"username",
         @"nickname" : @"nickname",
-        @"headUrl" : @"headUrl"
+        @"headUrl" : @"headUrl",
+        @"signature" : @"signature"
     };
 }
 

@@ -13,6 +13,8 @@
 #import "MINGCircleTweetsListViewController.h"
 #import "XLPageViewController.h"
 #import "UIColor+Hex.h"
+#import "MINGUserListViewModel.h"
+#import "MINGUserListViewController.h"
 
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <Masonry/Masonry.h>
@@ -190,6 +192,13 @@ XLPageViewControllerDataSrouce
 }
 
 
+- (void)membersViewDidClicked:(id)sender
+{
+    MINGUserListViewModel *viewModel = [[MINGUserListViewModel alloc] initWithMINGUserItems:self.viewModel.circleMembers];
+    MINGUserListViewController *controller = [[MINGUserListViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 #pragma mark - XLPageViewControllerDelegate
 
 - (void)pageViewController:(XLPageViewController *)pageViewController didSelectedAtIndex:(NSInteger)index
@@ -285,6 +294,7 @@ XLPageViewControllerDataSrouce
     if (!_circleMembersView) {
         _circleMembersView = [UIView new];
         _circleMembersView.userInteractionEnabled = YES;
+        [_circleMembersView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(membersViewDidClicked:)]];
     }
     return _circleMembersView;
 }
