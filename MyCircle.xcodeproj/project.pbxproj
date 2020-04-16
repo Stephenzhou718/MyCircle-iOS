@@ -53,7 +53,7 @@
 		29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */; };
 		29CF68E8244737A20066AECF /* MINGCircleTweetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */; };
 		29CF68EB24474F1C0066AECF /* MINGTweetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68EA24474F1C0066AECF /* MINGTweetsTableViewCell.m */; };
-		29CF68EE244750E30066AECF /* MINGCircleTweetsDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68ED244750E30066AECF /* MINGCircleTweetsDetailViewModel.m */; };
+		29CF68EE244750E30066AECF /* MINGTweetsDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68ED244750E30066AECF /* MINGTweetsDetailViewModel.m */; };
 		FB6D2C860821F555019D8EC1 /* Pods_MyCircle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81522563C3DE8872E16FE28 /* Pods_MyCircle.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,8 +148,8 @@
 		29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsListViewController.m; sourceTree = "<group>"; };
 		29CF68E924474F1C0066AECF /* MINGTweetsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweetsTableViewCell.h; sourceTree = "<group>"; };
 		29CF68EA24474F1C0066AECF /* MINGTweetsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGTweetsTableViewCell.m; sourceTree = "<group>"; };
-		29CF68EC244750E30066AECF /* MINGCircleTweetsDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsDetailViewModel.h; sourceTree = "<group>"; };
-		29CF68ED244750E30066AECF /* MINGCircleTweetsDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsDetailViewModel.m; sourceTree = "<group>"; };
+		29CF68EC244750E30066AECF /* MINGTweetsDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweetsDetailViewModel.h; sourceTree = "<group>"; };
+		29CF68ED244750E30066AECF /* MINGTweetsDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGTweetsDetailViewModel.m; sourceTree = "<group>"; };
 		7EA8733D26826145673529CF /* Pods-MyCircle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCircle.release.xcconfig"; path = "Target Support Files/Pods-MyCircle/Pods-MyCircle.release.xcconfig"; sourceTree = "<group>"; };
 		A81522563C3DE8872E16FE28 /* Pods_MyCircle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCircle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B034439BCF1AFA781D8F5B47 /* Pods-MyCircle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCircle.debug.xcconfig"; path = "Target Support Files/Pods-MyCircle/Pods-MyCircle.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +179,7 @@
 		2914ECB92441B74200164809 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2960361D24484120008C9A50 /* Comment */,
 				299F39FE24469D4200D1B918 /* Circle */,
 				299F39E52444625400D1B918 /* Detail */,
 				299F39E42444624900D1B918 /* List */,
@@ -222,11 +223,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		29786E0724430F0100F9C3C7 /* View */ = {
+		2960361D24484120008C9A50 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
 				299F39EF2445650A00D1B918 /* MINGCommentView.h */,
 				299F39F02445650A00D1B918 /* MINGCommentView.m */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		29786E0724430F0100F9C3C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				299F39F52445669C00D1B918 /* MINGCommentCell.h */,
 				299F39F62445669C00D1B918 /* MINGCommentCell.m */,
 				29786E0824430F2700F9C3C7 /* MINGVideoCellView.h */,
@@ -401,8 +409,8 @@
 				299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */,
 				299F3AA9244723DC00D1B918 /* MINGCircleDetailViewModel.h */,
 				299F3AAA244723DC00D1B918 /* MINGCircleDetailViewModel.m */,
-				29CF68EC244750E30066AECF /* MINGCircleTweetsDetailViewModel.h */,
-				29CF68ED244750E30066AECF /* MINGCircleTweetsDetailViewModel.m */,
+				29CF68EC244750E30066AECF /* MINGTweetsDetailViewModel.h */,
+				29CF68ED244750E30066AECF /* MINGTweetsDetailViewModel.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -590,7 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29CF68EE244750E30066AECF /* MINGCircleTweetsDetailViewModel.m in Sources */,
+				29CF68EE244750E30066AECF /* MINGTweetsDetailViewModel.m in Sources */,
 				299F39FD2445B30800D1B918 /* MINGTools.m in Sources */,
 				299F39F42445651F00D1B918 /* MINGCommentViewModel.m in Sources */,
 				299F39ED244465B600D1B918 /* MINGCommentItem.m in Sources */,

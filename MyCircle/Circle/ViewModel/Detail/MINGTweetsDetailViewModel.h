@@ -1,5 +1,5 @@
 //
-//  MINGCircleTweetsDetailViewModel.h
+//  MINGTweetsDetailViewModel.h
 //  MyCircle
 //
 //  Created by 周汉明 on 2020/4/15.
@@ -14,8 +14,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MINGCircleTweetsDetailViewModel : NSObject
+@interface MINGTweetsDetailViewModel : NSObject
 
+@property (nonatomic, strong) MINGTweetsItem *tweetsItem;
+
+- (instancetype)initWithTweetsItem:(MINGTweetsItem *)tweetsItem;
 
 @end
 

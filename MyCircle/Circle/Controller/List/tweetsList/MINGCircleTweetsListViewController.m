@@ -10,6 +10,8 @@
 #import "UIColor+Hex.h"
 #import "MINGTools.h"
 #import "MINGTweetsTableViewCell.h"
+#import "MINGTweetsDetailViewModel.h"
+#import "MINGTweetsDetailViewController.h"
 
 #import <MJRefresh/MJRefresh.h>
 #import <Masonry/Masonry.h>
@@ -90,6 +92,9 @@ UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    MINGTweetsDetailViewModel *viewModel = [[MINGTweetsDetailViewModel alloc] initWithTweetsItem:self.viewModel.tweetsItems[indexPath.row]];
+    MINGTweetsDetailViewController *controller = [[MINGTweetsDetailViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - UITableViewDatasource

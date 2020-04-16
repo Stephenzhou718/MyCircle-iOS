@@ -170,7 +170,7 @@
 {
     if (!_commentCountView) {
         _commentCountView = [[UIView alloc] init];
-        _commentCountView.backgroundColor = [UIColor colorWithHexString:@"F4F4F4"];
+        _commentCountView.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
     }
     return _commentCountView;
 }

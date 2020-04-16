@@ -325,7 +325,9 @@ XLPageViewControllerDataSrouce
     if (!_pageViewController) {
         XLPageViewControllerConfig *config = [XLPageViewControllerConfig defaultConfig];
         config.showTitleInNavigationBar = false;
-        config.titleViewStyle = XLPageTitleViewStyleSegmented;
+        config.titleViewStyle = XLPageTitleViewStyleBasic;
+        config.textVerticalAlignment = XLPageTitleViewAlignmentLeft;
+        config.shadowLineAnimationType = XLPageShadowLineAnimationTypeZoom;
         config.separatorLineHidden = true;
         // 设置缩进
         config.titleViewInset = UIEdgeInsetsMake(5, 50, 5, 50);
