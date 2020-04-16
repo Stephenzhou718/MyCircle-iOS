@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MINGTools : NSObject
 
 + (NSString *)converTimeStampToString:(long)timeStamp;
++ (NSArray<NSURL *> *)spiltStringToUrls:(NSString *)str;
 
 @end
 

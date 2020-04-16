@@ -12,6 +12,8 @@
 		2914ECB82441B46100164809 /* MINGTweetsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECB72441B46100164809 /* MINGTweetsDetailViewController.m */; };
 		2914ECBE2441B91C00164809 /* MINGCircleVideoListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */; };
 		2914ECC12441B94C00164809 /* MINGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECC02441B94C00164809 /* MINGVideo.m */; };
+		296036192447F80C008C9A50 /* MINGTweets.m in Sources */ = {isa = PBXBuildFile; fileRef = 296036182447F80C008C9A50 /* MINGTweets.m */; };
+		2960361C2447F81B008C9A50 /* MINGTweetsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2960361B2447F81B008C9A50 /* MINGTweetsItem.m */; };
 		29786E032443074900F9C3C7 /* MINGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 29786E022443074900F9C3C7 /* MINGUser.m */; };
 		29786E062443085E00F9C3C7 /* MINGVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 29786E052443085E00F9C3C7 /* MINGVideoItem.m */; };
 		29786E0A24430F2700F9C3C7 /* MINGVideoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29786E0924430F2700F9C3C7 /* MINGVideoCellView.m */; };
@@ -50,6 +52,8 @@
 		29AC202C2423456A00641337 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AC202B2423456A00641337 /* main.m */; };
 		29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */; };
 		29CF68E8244737A20066AECF /* MINGCircleTweetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */; };
+		29CF68EB24474F1C0066AECF /* MINGTweetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68EA24474F1C0066AECF /* MINGTweetsTableViewCell.m */; };
+		29CF68EE244750E30066AECF /* MINGCircleTweetsDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68ED244750E30066AECF /* MINGCircleTweetsDetailViewModel.m */; };
 		FB6D2C860821F555019D8EC1 /* Pods_MyCircle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81522563C3DE8872E16FE28 /* Pods_MyCircle.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,10 @@
 		2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleVideoListViewModel.m; sourceTree = "<group>"; };
 		2914ECBF2441B94C00164809 /* MINGVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideo.h; sourceTree = "<group>"; };
 		2914ECC02441B94C00164809 /* MINGVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGVideo.m; sourceTree = "<group>"; };
+		296036172447F80C008C9A50 /* MINGTweets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweets.h; sourceTree = "<group>"; };
+		296036182447F80C008C9A50 /* MINGTweets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGTweets.m; sourceTree = "<group>"; };
+		2960361A2447F81B008C9A50 /* MINGTweetsItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweetsItem.h; sourceTree = "<group>"; };
+		2960361B2447F81B008C9A50 /* MINGTweetsItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGTweetsItem.m; sourceTree = "<group>"; };
 		29786E012443074900F9C3C7 /* MINGUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGUser.h; sourceTree = "<group>"; };
 		29786E022443074900F9C3C7 /* MINGUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGUser.m; sourceTree = "<group>"; };
 		29786E042443085E00F9C3C7 /* MINGVideoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideoItem.h; sourceTree = "<group>"; };
@@ -138,6 +146,10 @@
 		29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsListViewModel.m; sourceTree = "<group>"; };
 		29CF68E6244737A20066AECF /* MINGCircleTweetsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsListViewController.h; sourceTree = "<group>"; };
 		29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsListViewController.m; sourceTree = "<group>"; };
+		29CF68E924474F1C0066AECF /* MINGTweetsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweetsTableViewCell.h; sourceTree = "<group>"; };
+		29CF68EA24474F1C0066AECF /* MINGTweetsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGTweetsTableViewCell.m; sourceTree = "<group>"; };
+		29CF68EC244750E30066AECF /* MINGCircleTweetsDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsDetailViewModel.h; sourceTree = "<group>"; };
+		29CF68ED244750E30066AECF /* MINGCircleTweetsDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsDetailViewModel.m; sourceTree = "<group>"; };
 		7EA8733D26826145673529CF /* Pods-MyCircle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCircle.release.xcconfig"; path = "Target Support Files/Pods-MyCircle/Pods-MyCircle.release.xcconfig"; sourceTree = "<group>"; };
 		A81522563C3DE8872E16FE28 /* Pods_MyCircle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCircle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B034439BCF1AFA781D8F5B47 /* Pods-MyCircle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCircle.debug.xcconfig"; path = "Target Support Files/Pods-MyCircle/Pods-MyCircle.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +214,10 @@
 				299F3A2F2446AE3F00D1B918 /* MINGCircleItem.m */,
 				299F3A342446B5E100D1B918 /* MINGCircle.h */,
 				299F3A352446B5E100D1B918 /* MINGCircle.m */,
+				296036172447F80C008C9A50 /* MINGTweets.h */,
+				296036182447F80C008C9A50 /* MINGTweets.m */,
+				2960361A2447F81B008C9A50 /* MINGTweetsItem.h */,
+				2960361B2447F81B008C9A50 /* MINGTweetsItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +233,8 @@
 				29786E0924430F2700F9C3C7 /* MINGVideoCellView.m */,
 				299F3A2B2446ABE300D1B918 /* MINGCircleSelectionCell.h */,
 				299F3A2C2446ABE300D1B918 /* MINGCircleSelectionCell.m */,
+				29CF68E924474F1C0066AECF /* MINGTweetsTableViewCell.h */,
+				29CF68EA24474F1C0066AECF /* MINGTweetsTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,6 +401,8 @@
 				299F39E92444637300D1B918 /* MINGVideoDetailViewModel.m */,
 				299F3AA9244723DC00D1B918 /* MINGCircleDetailViewModel.h */,
 				299F3AAA244723DC00D1B918 /* MINGCircleDetailViewModel.m */,
+				29CF68EC244750E30066AECF /* MINGCircleTweetsDetailViewModel.h */,
+				29CF68ED244750E30066AECF /* MINGCircleTweetsDetailViewModel.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -570,12 +590,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29CF68EE244750E30066AECF /* MINGCircleTweetsDetailViewModel.m in Sources */,
 				299F39FD2445B30800D1B918 /* MINGTools.m in Sources */,
 				299F39F42445651F00D1B918 /* MINGCommentViewModel.m in Sources */,
 				299F39ED244465B600D1B918 /* MINGCommentItem.m in Sources */,
 				29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */,
 				299F3A482446FEF200D1B918 /* XLNavigationController.m in Sources */,
 				2914ECB82441B46100164809 /* MINGTweetsDetailViewController.m in Sources */,
+				296036192447F80C008C9A50 /* MINGTweets.m in Sources */,
 				29AC20212423456900641337 /* ViewController.m in Sources */,
 				299F3A142446A7D100D1B918 /* XLPageBasicTitleView.m in Sources */,
 				299F3A302446AE3F00D1B918 /* MINGCircleItem.m in Sources */,
@@ -589,6 +611,7 @@
 				299F39F12445650A00D1B918 /* MINGCommentView.m in Sources */,
 				299F3A0424469D8B00D1B918 /* MINGCirclePageViewModel.m in Sources */,
 				299F3A2D2446ABE300D1B918 /* MINGCircleSelectionCell.m in Sources */,
+				29CF68EB24474F1C0066AECF /* MINGTweetsTableViewCell.m in Sources */,
 				299F39EA2444637300D1B918 /* MINGVideoDetailViewModel.m in Sources */,
 				299F3A332446AF5E00D1B918 /* MINGCircleSelectionViewModel.m in Sources */,
 				29786E0A24430F2700F9C3C7 /* MINGVideoCellView.m in Sources */,
@@ -596,6 +619,7 @@
 				2914ECB22441AB7900164809 /* MINGPublishViewController.m in Sources */,
 				299F39FA244590BC00D1B918 /* MINGComment.m in Sources */,
 				2914ECBE2441B91C00164809 /* MINGCircleVideoListViewModel.m in Sources */,
+				2960361C2447F81B008C9A50 /* MINGTweetsItem.m in Sources */,
 				29786E062443085E00F9C3C7 /* MINGVideoItem.m in Sources */,
 				299F3AAB244723DC00D1B918 /* MINGCircleDetailViewModel.m in Sources */,
 				299F39F72445669D00D1B918 /* MINGCommentCell.m in Sources */,

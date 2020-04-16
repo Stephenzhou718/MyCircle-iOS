@@ -14,6 +14,7 @@
 @interface MINGVideoCellView()
 
 @property (nonatomic, strong) UIView *backView;
+@property (nonatomic, strong) UIView *sepView;
 @property (nonatomic, strong) UIImageView *commentIcon;
 
 @end
@@ -48,9 +49,12 @@
     [self.backView addSubview:self.commentCountLabel];
     [self.backView addSubview:self.likeIcon];
     [self.backView addSubview:self.commentIcon];
+    [self addSubview:self.sepView];
     
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.top.bottom.equalTo(self);
+        make.top.bottom.equalTo(self).offset(10);
+        make.leading.equalTo(self).offset(10);
+        make.trailing.equalTo(self).offset(-10);
     }];
     
     [self.cover mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,9 +69,9 @@
     }];
     
     [self.authorHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.title.mas_bottom).offset(10);
+        make.top.equalTo(self.title.mas_bottom).offset(5);
         make.leading.equalTo(self.backView);
-        make.width.and.height.equalTo(@24);
+        make.width.and.height.equalTo(@30);
     }];
     
     [self.authorNickName mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,6 +105,11 @@
         make.trailing.equalTo(self.commentCountLabel.mas_leading).offset(-5);
         make.centerY.equalTo(self.authorHeaderView);
         make.width.and.height.equalTo(@24);
+    }];
+    
+    [self.sepView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.trailing.and.bottom.equalTo(self);
+        make.height.equalTo(@8);
     }];
 }
 
@@ -140,7 +149,7 @@
 {
     if (!_authorHeaderView) {
         _authorHeaderView = [[UIImageView alloc] init];
-        _authorHeaderView.layer.cornerRadius = 12;
+        _authorHeaderView.layer.cornerRadius = 15;
         _authorHeaderView.userInteractionEnabled = YES;
         _authorHeaderView.layer.masksToBounds = YES;
     }
@@ -198,6 +207,15 @@
         _commentIcon.userInteractionEnabled = YES;
     }
     return _commentIcon;
+}
+
+- (UIView *)sepView
+{
+    if (!_sepView) {
+        _sepView = [UIView new];
+        _sepView.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
+    }
+    return _sepView;
 }
 
 @end

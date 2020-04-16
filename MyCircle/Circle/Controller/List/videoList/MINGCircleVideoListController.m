@@ -11,6 +11,7 @@
 #import "MINGCircleVideoListViewModel.h"
 #import "MINGVideoDetailViewModel.h"
 #import "MINGVideoDetailViewController.h"
+#import "UIColor+Hex.h"
 
 #import <Masonry/Masonry.h>
 #import <WMPlayer/WMPlayer.h>
@@ -49,6 +50,7 @@ WMPlayerDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
     [[self.viewModel.refreshCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -82,8 +84,8 @@ WMPlayerDelegate
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.view).offset(20);
-        make.trailing.equalTo(self.view).offset(-20);
+        make.leading.equalTo(self.view);
+        make.trailing.equalTo(self.view);
         make.top.and.bottom.equalTo(self.view);
     }];
 }
@@ -93,7 +95,7 @@ WMPlayerDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 310;
+    return 320;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

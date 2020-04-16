@@ -19,4 +19,18 @@
     return dateStr;
 }
 
++ (NSArray<NSURL *> *)spiltStringToUrls:(NSString *)str
+{
+    if (str == nil || str.length == 0) {
+        return [NSArray new];
+    } else {
+        NSArray<NSString *> *strs = [str componentsSeparatedByString:@","];
+        NSMutableArray<NSURL *> *ret = @[].mutableCopy;
+        for (NSString *str in strs) {
+            [ret addObject:[NSURL URLWithString:str]];
+        }
+        return ret.copy;
+    }
+}
+
 @end

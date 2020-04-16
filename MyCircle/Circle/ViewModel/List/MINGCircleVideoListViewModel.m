@@ -69,7 +69,7 @@
                         @"limit" : @(self.limit),
                         @"circleId" : self.circleId
                     };
-                    url = @"http://127.0.0.1:8080/circle/videos/";
+                    url = @"http://127.0.0.1:8080/circle/videos";
                 }
                 
                 url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"#%^{}\"[]|\\<> "].invertedSet];

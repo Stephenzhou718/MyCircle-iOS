@@ -103,47 +103,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "64673839-57BE-44F1-8910-EEFDAD78A130"
+            uuid = "225B5897-75A4-4B92-8F9F-0516C25ECC2C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyCircle/Circle/ViewModel/List/MINGCircleVideoListViewModel.m"
+            filePath = "MyCircle/Circle/Controller/List/tweetsList/MINGCircleTweetsListViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-refreshCommand"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AA6E2E8A-F6DA-4902-A83B-AF623AA0FF78"
+            uuid = "D5F7BCD0-2FD0-408E-B22B-0FE3DD35DBE7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyCircle/Circle/ViewModel/List/MINGCircleVideoListViewModel.m"
+            filePath = "MyCircle/Circle/ViewModel/List/MINGCircleTweetsListViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-refreshCommand"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B398C2CB-96F9-4C58-A1F3-0F73785E3E50"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyCircle/Circle/ViewModel/List/MINGCircleVideoListViewModel.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-refreshCommand"
             landmarkType = "7">
          </BreakpointContent>
