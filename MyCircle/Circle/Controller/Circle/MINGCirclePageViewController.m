@@ -34,7 +34,7 @@ XLPageViewControllerDataSrouce
     config.titleViewInset = UIEdgeInsetsMake(5, 50, 5, 50);
     
     self.pageViewController = [[XLPageViewController alloc] initWithConfig:config];
-    self.pageViewController.view.frame = CGRectMake(0, 34, self.view.frame.size.width, self.view.frame.size.height - 80);
+    self.pageViewController.view.frame = CGRectMake(0, 42, self.view.frame.size.width, self.view.frame.size.height - 80);
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
     [self addChildViewController:self.pageViewController];

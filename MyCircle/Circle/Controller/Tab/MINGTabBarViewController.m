@@ -14,6 +14,7 @@
 #import "MINGCirclePageViewController.h"
 #import "XLNavigationController.h"
 #import "MINGLoginPageViewController.h"
+#import "MINGPublishViewController.h"
 
 @interface MINGTabBarViewController ()
 
@@ -41,8 +42,14 @@
         circlePageViewController.tabBarItem.image = [UIImage imageNamed:@"circle"];
         circlePageViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"circle_active"];
         
+        // 发布
+        MINGPublishViewController *publishViewController = [[MINGPublishViewController alloc] init];
+        publishViewController.tabBarItem.title = @"发布";
+        publishViewController.tabBarItem.image = [UIImage imageNamed:@"publish"];
+        publishViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"publish_active"];
         
-        [self setViewControllers:@[videoListViewController, circlePageViewController]];
+        
+        [self setViewControllers:@[videoListViewController, circlePageViewController, publishViewController]];
     }
     return self;
 }
