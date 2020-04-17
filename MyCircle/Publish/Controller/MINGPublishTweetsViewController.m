@@ -1,18 +1,18 @@
 //
-//  MINGPublishViewController.m
+//  MINGPublishTweetsViewController.m
 //  MyCircle
 //
-//  Created by 周汉明 on 2020/4/11.
+//  Created by 周汉明 on 2020/4/17.
 //  Copyright © 2020 周汉明. All rights reserved.
 //
 
-#import "MINGPublishViewController.h"
+#import "MINGPublishTweetsViewController.h"
 
-@interface MINGPublishViewController ()
+@interface MINGPublishTweetsViewController ()
 
 @end
 
-@implementation MINGPublishViewController
+@implementation MINGPublishTweetsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
