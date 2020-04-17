@@ -27,6 +27,7 @@ PODS:
   - SDWebImage (5.7.2):
     - SDWebImage/Core (= 5.7.2)
   - SDWebImage/Core (5.7.2)
+  - Toast (4.0.0)
   - TZImagePickerController (3.3.1)
   - WMPlayer (5.0.0):
     - Masonry
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.4)
   - ReactiveObjC (~> 3.1)
   - SDWebImage (~> 5.6)
+  - Toast (~> 4.0.0)
   - TZImagePickerController (~> 3.3)
   - WMPlayer (~> 5.0)
 
@@ -53,6 +55,7 @@ SPEC REPOS:
     - MJRefresh
     - ReactiveObjC
     - SDWebImage
+    - Toast
     - TZImagePickerController
     - WMPlayer
 
@@ -66,9 +69,10 @@ SPEC CHECKSUMS:
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: d9ea4959d99c52276dfada481987018fcaea3d58
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
   WMPlayer: a914f80ed5dca7cd9e3a94ec07a2b02eec8c15c0
 
-PODFILE CHECKSUM: 01f05ed4213aa90089ee51e8efbf1147fff99c62
+PODFILE CHECKSUM: f00a8bb17702e41ae2f18238fbe90e4578a7c1c2
 
 COCOAPODS: 1.9.1

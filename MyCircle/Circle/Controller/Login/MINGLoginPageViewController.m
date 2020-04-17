@@ -1,17 +1,20 @@
 //
-//  MINGCirclePageViewController.m
+//  MINGLoginPageViewController.m
 //  MyCircle
 //
-//  Created by 周汉明 on 2020/4/15.
+//  Created by 周汉明 on 2020/4/16.
 //  Copyright © 2020 周汉明. All rights reserved.
 //
 
-#import "MINGCirclePageViewController.h"
-#import "MINGCircleSelectionViewModel.h"
-#import "MINGCircleSelectionViewController.h"
+#import "MINGLoginPageViewController.h"
+#import "MINGLoginViewModel.h"
+#import "MINGLoginViewController.h"
+#import "MINGRegisterViewController.h"
 #import "XLPageViewController.h"
 
-@interface MINGCirclePageViewController ()
+#import <Masonry/Masonry.h>
+
+@interface MINGLoginPageViewController ()
 <
 XLPageViewControllerDelegate,
 XLPageViewControllerDataSrouce
@@ -21,7 +24,17 @@ XLPageViewControllerDataSrouce
 
 @end
 
-@implementation MINGCirclePageViewController
+@implementation MINGLoginPageViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self configSubViews];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -34,11 +47,16 @@ XLPageViewControllerDataSrouce
     config.titleViewInset = UIEdgeInsetsMake(5, 50, 5, 50);
     
     self.pageViewController = [[XLPageViewController alloc] initWithConfig:config];
-    self.pageViewController.view.frame = CGRectMake(0, 34, self.view.frame.size.width, self.view.frame.size.height - 80);
+    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 80);
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
+}
+
+- (void)configSubViews
+{
+    
 }
 
 
@@ -46,10 +64,10 @@ XLPageViewControllerDataSrouce
 
 - (void)pageViewController:(XLPageViewController *)pageViewController didSelectedAtIndex:(NSInteger)index
 {
-    NSLog(@"切换到了：%@",[self vcTitles][index]);
+    
 }
 
-#pragma mark - XLPageViewControllerDataSrouce
+#pragma mark - XLPageViewControllerDataSource
 
 - (NSInteger)pageViewControllerNumberOfPage
 {
@@ -64,22 +82,22 @@ XLPageViewControllerDataSrouce
 - (UIViewController *)pageViewController:(XLPageViewController *)pageViewController viewControllerForIndex:(NSInteger)index
 {
     if (index == 0) {
-        MINGCircleSelectionViewModel *viewModel = [[MINGCircleSelectionViewModel alloc] initWithSelectionType:MINGCircleSelectionTypeAll];
-        MINGCircleSelectionViewController *controller = [[MINGCircleSelectionViewController alloc] initWithViewModel:viewModel];
+        MINGLoginViewModel *viewModel = [[MINGLoginViewModel alloc] init];
+        MINGLoginViewController *controller = [[MINGLoginViewController alloc] initWithViewModel:viewModel];
         return controller;
-        
     } else {
-        MINGCircleSelectionViewModel *viewModel = [[MINGCircleSelectionViewModel alloc] initWithSelectionType:MINGCircleSelectionTypeAll];
-        MINGCircleSelectionViewController *controller = [[MINGCircleSelectionViewController alloc] initWithViewModel:viewModel];
+        MINGLoginViewModel *viewModel = [[MINGLoginViewModel alloc] init];
+        MINGRegisterViewController *controller = [[MINGRegisterViewController alloc] initWithViewModel:viewModel];
         return controller;
     }
 }
+
 
 #pragma mark - Actions
 
 - (NSArray *)vcTitles
 {
-    return @[@"所有", @"我加入的"];
+    return @[@"登陆", @"注册"];
 }
 
 

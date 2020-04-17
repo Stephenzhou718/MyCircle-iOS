@@ -16,5 +16,6 @@ target 'MyCircle' do
   pod 'MJRefresh', '~> 3.4'
   pod 'MBProgressHUD', '~> 1.2'
   pod 'Mantle', '~> 2.1'
+  pod 'Toast', '~> 4.0.0'
 
 end
