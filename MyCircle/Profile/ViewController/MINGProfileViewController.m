@@ -10,6 +10,9 @@
 #import "MINGProfileBaseCell.h"
 #import "MINGProfileBaseCellWithArrow.h"
 #import "MINGProfileSimpleCell.h"
+#import "MINGUserListViewModel.h"
+#import "MINGUserListViewController.h"
+#import "UIColor+Hex.h"
 
 #import <SDWebImage/SDWebImage.h>
 #import <Masonry/Masonry.h>
@@ -49,6 +52,7 @@ UINavigationControllerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configSubViews];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
     
     @weakify(self)
     [[self.viewModel.getUserInfoCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
@@ -69,11 +73,16 @@ UINavigationControllerDelegate
     [[self.viewModel.updataAvatarUrlCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
         [self.view makeToast:@"更换成功"];
     }];
+    
+    [self.viewModel.getFollowersCommand execute:nil];
+    [self.viewModel.getFollowingsCommand execute:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.viewModel.getUserInfoCommand execute:nil];
+    [self.viewModel.getFollowersCommand execute:nil];
+    [self.viewModel.getFollowingsCommand execute:nil];
 }
 
 - (void)configSubViews
@@ -155,12 +164,16 @@ UINavigationControllerDelegate
 
 - (void)followerCellDidTapped:(id)sender
 {
-    
+    MINGUserListViewModel *viewModel = [[MINGUserListViewModel alloc] initWithMINGUserItems:self.viewModel.followers];
+    MINGUserListViewController *controller = [[MINGUserListViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)followingCellDidtapped:(id)sender
 {
-    
+    MINGUserListViewModel *viewModel = [[MINGUserListViewModel alloc] initWithMINGUserItems:self.viewModel.followings];
+       MINGUserListViewController *controller = [[MINGUserListViewController alloc] initWithViewModel:viewModel];
+       [self.navigationController pushViewController:controller animated:YES];
 }
 
 
@@ -286,7 +299,7 @@ UINavigationControllerDelegate
         _followingsCell.content.text = @"关注";
         [_followingsCell setSeplineHidden:YES];
         _followingsCell.userInteractionEnabled = YES;
-        [_followersCell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(followingCellDidtapped:)]];
+        [_followingsCell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(followingCellDidtapped:)]];
     }
     return _followingsCell;
 }

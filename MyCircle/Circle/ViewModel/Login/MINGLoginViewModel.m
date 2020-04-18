@@ -72,6 +72,7 @@
                                       //存储cookies
                                    NSLog(@"%@", cookie.value);
                                    [[NSUserDefaults standardUserDefaults] setObject:cookie.value forKey:@"cookie"];
+                                   [[NSUserDefaults standardUserDefaults] setObject:self.user.username forKey:@"username"];
                                 }
                                //存储之后删除cookies
 //                               [cookieJar deleteCookie:cookie];

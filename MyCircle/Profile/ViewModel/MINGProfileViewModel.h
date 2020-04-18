@@ -7,6 +7,7 @@
 //
 
 #import "MINGUser.h"
+#import "MINGUserItem.h"
 
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -19,12 +20,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImage *uploadImage;
 @property (nonatomic, copy) NSString *avatarUrl;
 
-
 @property (nonatomic, strong) RACCommand *getUserInfoCommand;
 @property (nonatomic, strong) RACCommand *uploadAvatarCommand;
 @property (nonatomic, strong) RACCommand *updataAvatarUrlCommand;
 
+// 关注 / 粉丝
+@property (nonatomic, strong) NSArray<MINGUserItem *> *followers;
+@property (nonatomic, strong) NSArray<MINGUserItem *> *followings;
 
+@property (nonatomic, strong) RACCommand *getFollowersCommand;
+@property (nonatomic, strong) RACCommand *getFollowingsCommand;
 
 @end
 

@@ -128,4 +128,70 @@
     return _updataAvatarUrlCommand;
 }
 
+- (RACCommand *)getFollowersCommand
+{
+    if (!_getFollowersCommand) {
+        _getFollowersCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                
+                NSDictionary *params = @{
+                    @"username" : [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]
+                };
+                
+                NSString *url = @"http://127.0.0.1:8080/follow/get_all_followers";
+                [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+                        self.followers = [MTLJSONAdapter modelsOfClass:[MINGUserItem class] fromJSONArray:[responseObject objectForKey:@"data"] error:nil];
+                        [subscriber sendNext:nil];
+                        [subscriber sendCompleted];
+                    } else {
+                        [subscriber sendError:nil];
+                    }
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:error];
+                }];
+               
+                return nil;
+            }];
+        }];
+    }
+    return _getFollowersCommand;
+}
+
+- (RACCommand *)getFollowingsCommand
+{
+    if (!_getFollowingsCommand) {
+        _getFollowingsCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                
+                NSDictionary *params = @{
+                    @"username" : [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]
+                };
+                
+                NSString *url = @"http://127.0.0.1:8080/follow/get_all_followings";
+                [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+                        self.followings = [MTLJSONAdapter modelsOfClass:[MINGUserItem class] fromJSONArray:[responseObject objectForKey:@"data"] error:nil];
+                        [subscriber sendNext:nil];
+                        [subscriber sendCompleted];
+                    } else {
+                        [subscriber sendError:nil];
+                    }
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:error];
+                }];
+               
+                return nil;
+            }];
+        }];
+    }
+    return _getFollowingsCommand;
+}
+
 @end
