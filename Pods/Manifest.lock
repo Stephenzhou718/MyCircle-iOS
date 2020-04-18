@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - ASProgressPopUpView (0.9)
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
@@ -31,9 +32,11 @@ PODS:
   - TZImagePickerController (3.3.1)
   - WMPlayer (5.0.0):
     - Masonry
+  - ZWPlaceHolder (0.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2)
+  - ASProgressPopUpView (~> 0.9)
   - IGListKit (~> 4.0)
   - Mantle (~> 2.1)
   - MBProgressHUD (~> 1.2)
@@ -43,10 +46,12 @@ DEPENDENCIES:
   - Toast (~> 4.0.0)
   - TZImagePickerController (~> 3.3)
   - WMPlayer (~> 5.0)
+  - ZWPlaceHolder
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - ASProgressPopUpView
     - IGListDiffKit
     - IGListKit
     - Mantle
@@ -58,9 +63,11 @@ SPEC REPOS:
     - Toast
     - TZImagePickerController
     - WMPlayer
+    - ZWPlaceHolder
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  ASProgressPopUpView: dfe44c9a0313ac93a8092bd361b59f52c83a7560
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   Mantle: 35238ae6f2e2b2d474fa7b67fee82a59fea71915
@@ -72,7 +79,8 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
   WMPlayer: a914f80ed5dca7cd9e3a94ec07a2b02eec8c15c0
+  ZWPlaceHolder: d55cce10c9930b48c31bf48e7f4748974a31f7e0
 
-PODFILE CHECKSUM: f00a8bb17702e41ae2f18238fbe90e4578a7c1c2
+PODFILE CHECKSUM: 401fb87bce6d70bad89f456304078f100517605d
 
 COCOAPODS: 1.9.1

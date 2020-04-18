@@ -17,5 +17,7 @@ target 'MyCircle' do
   pod 'MBProgressHUD', '~> 1.2'
   pod 'Mantle', '~> 2.1'
   pod 'Toast', '~> 4.0.0'
+  pod 'ASProgressPopUpView', '~> 0.9'
+  pod   'ZWPlaceHolder'
 
 end

@@ -154,7 +154,7 @@ UINavigationControllerDelegate
     [alert addAction:[UIAlertAction actionWithTitle:@"从相册上传" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 从手机相册选择图片的操作
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         imagePicker.delegate = self;
         imagePicker.allowsEditing = YES;
         [self presentViewController:imagePicker animated:YES completion:nil];
