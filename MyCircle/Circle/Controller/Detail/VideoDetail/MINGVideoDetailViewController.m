@@ -10,6 +10,7 @@
 #import "UIColor+Hex.h"
 #import "MINGCommentViewModel.h"
 #import "MINGCommentView.h"
+#import "MINGTools.h"
 
 #import <WMPlayer/WMPlayer.h>
 #import <Masonry/Masonry.h>
@@ -214,13 +215,19 @@
 
 - (void)loadData
 {
-    [self.authorAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://static.veer.com/veer/static/resources/keyword/2020-02-19/533ed30de651499da1c463bca44b6d60.jpg"]];
-    self.authorNickNameLabel.text = @"飞翔的滑稽";
-    self.timeLabel.text = @"2020-7-18 11:30";
+//    [self.authorAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://static.veer.com/veer/static/resources/keyword/2020-02-19/533ed30de651499da1c463bca44b6d60.jpg"]];
+//    self.authorNickNameLabel.text = @"飞翔的滑稽";
+//    self.timeLabel.text = @"2020-7-18 11:30";
+//
+//
+//    self.videoTitleLabel.text = @"英语六级听力听力听力呀";
+//    self.videoDescriptionLabel.text = @"英语六级英语六级英语六级英语六级英语六级英语六级英语六级英语六级英语六级";
     
-    
-    self.videoTitleLabel.text = @"英语六级听力听力听力呀";
-    self.videoDescriptionLabel.text = @"英语六级英语六级英语六级英语六级英语六级英语六级英语六级英语六级英语六级";
+    [self.authorAvatar sd_setImageWithURL:[NSURL URLWithString:self.viewModel.author.headUrl]];
+    self.authorNickNameLabel.text = self.viewModel.author.nickname;
+    self.timeLabel.text = [MINGTools converTimeStampToString:self.viewModel.video.publishTime];
+    self.videoTitleLabel.text = self.viewModel.video.title;
+    self.videoDescriptionLabel.text = self.viewModel.video.content;
 }
 
 - (void)releaseWMPlayer{
