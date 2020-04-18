@@ -96,12 +96,16 @@
 
 - (void)publishTweetsButtonDidClicked:(id)sender
 {
-    
+    MINGPublishTweetsViewModel *viewModel = [[MINGPublishTweetsViewModel alloc] init];
+    MINGPublishTweetsViewController *controller = [[MINGPublishTweetsViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)publishVideoButtonDidClicked:(id)sender
 {
-    
+    MINGPublishVideoViewModel *viewModel = [[MINGPublishVideoViewModel alloc] init];
+    MINGPublishVideoViewController *controller = [[MINGPublishVideoViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - lazy load
@@ -115,6 +119,7 @@
         _publishTweetsView.layer.shadowColor = [UIColor blackColor].CGColor;
         _publishTweetsView.layer.shadowOffset = CGSizeMake(10, 15);
         _publishTweetsView.layer.shadowOpacity = 0.2;
+        [_publishTweetsView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(publishTweetsButtonDidClicked:)]];
     }
     return _publishTweetsView;
 }
@@ -128,6 +133,7 @@
         _publishVideoView.layer.shadowColor = [UIColor blackColor].CGColor;
         _publishVideoView.layer.shadowOffset = CGSizeMake(10, 15);
         _publishVideoView.layer.shadowOpacity = 0.2;
+        [_publishVideoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(publishVideoButtonDidClicked:)]];
     }
     return _publishVideoView;
 }

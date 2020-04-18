@@ -71,10 +71,10 @@
                                if ([cookie.name isEqualToString:@"ticket"]) {
                                       //存储cookies
                                    NSLog(@"%@", cookie.value);
-
+                                   [[NSUserDefaults standardUserDefaults] setObject:cookie.value forKey:@"cookie"];
                                 }
                                //存储之后删除cookies
-                               [cookieJar deleteCookie:cookie];
+//                               [cookieJar deleteCookie:cookie];
                           }
                         
                         [[NSUserDefaults standardUserDefaults] setObject:self.user.username forKey:@"username"];
@@ -90,7 +90,7 @@
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey:@"网络请求错误"};
                     [subscriber sendError:[NSError errorWithDomain:NSCocoaErrorDomain code:0 userInfo:userInfo]];
-                    NSLog(error);
+//                    NSLog(error);
                 }];
                 return nil;
             }];
