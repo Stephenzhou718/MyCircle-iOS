@@ -133,7 +133,6 @@
                     [subscriber sendError:error];
                 }];
                 return nil;
-                return nil;
             }];
         }];
     }

@@ -15,6 +15,8 @@
 #import "XLNavigationController.h"
 #import "MINGLoginPageViewController.h"
 #import "MINGPublishViewController.h"
+#import "MINGProfileViewModel.h"
+#import "MINGProfileViewController.h"
 
 @interface MINGTabBarViewController ()
 
@@ -48,8 +50,15 @@
         publishViewController.tabBarItem.image = [UIImage imageNamed:@"publish"];
         publishViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"publish_active"];
         
+        // 我的
+        MINGProfileViewModel *viewModel = [[MINGProfileViewModel alloc] init];
+        MINGProfileViewController *profileViewController = [[MINGProfileViewController alloc] initWithViewModel:viewModel];
+        profileViewController.tabBarItem.title = @"我的";
+        profileViewController.tabBarItem.image = [UIImage imageNamed:@"me"];
+        profileViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"me_active"];
+    
         
-        [self setViewControllers:@[videoListViewController, circlePageViewController, publishViewController]];
+        [self setViewControllers:@[videoListViewController, circlePageViewController, publishViewController, profileViewController]];
     }
     return self;
 }

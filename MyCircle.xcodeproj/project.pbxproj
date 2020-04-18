@@ -13,6 +13,11 @@
 		2914ECB82441B46100164809 /* MINGTweetsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECB72441B46100164809 /* MINGTweetsDetailViewController.m */; };
 		2914ECBE2441B91C00164809 /* MINGCircleVideoListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */; };
 		2914ECC12441B94C00164809 /* MINGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECC02441B94C00164809 /* MINGVideo.m */; };
+		293F0F94244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F93244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m */; };
+		293F0F97244AE836002E65FC /* MINGProfileBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F96244AE836002E65FC /* MINGProfileBaseCell.m */; };
+		293F0F9A244AE849002E65FC /* MINGProfileSimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F99244AE849002E65FC /* MINGProfileSimpleCell.m */; };
+		293F0FA0244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F9F244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m */; };
+		293F0FA3244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0FA2244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m */; };
 		296036192447F80C008C9A50 /* MINGTweets.m in Sources */ = {isa = PBXBuildFile; fileRef = 296036182447F80C008C9A50 /* MINGTweets.m */; };
 		2960361C2447F81B008C9A50 /* MINGTweetsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2960361B2447F81B008C9A50 /* MINGTweetsItem.m */; };
 		29786E032443074900F9C3C7 /* MINGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 29786E022443074900F9C3C7 /* MINGUser.m */; };
@@ -63,6 +68,7 @@
 		29AC20262423456A00641337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29AC20252423456A00641337 /* Assets.xcassets */; };
 		29AC20292423456A00641337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC20272423456A00641337 /* LaunchScreen.storyboard */; };
 		29AC202C2423456A00641337 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29AC202B2423456A00641337 /* main.m */; };
+		29C849BC244AC5AD008170FB /* MINGProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C849BB244AC5AD008170FB /* MINGProfileViewModel.m */; };
 		29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */; };
 		29CF68E8244737A20066AECF /* MINGCircleTweetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68E7244737A20066AECF /* MINGCircleTweetsListViewController.m */; };
 		29CF68EB24474F1C0066AECF /* MINGTweetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CF68EA24474F1C0066AECF /* MINGTweetsTableViewCell.m */; };
@@ -83,6 +89,16 @@
 		2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleVideoListViewModel.m; sourceTree = "<group>"; };
 		2914ECBF2441B94C00164809 /* MINGVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideo.h; sourceTree = "<group>"; };
 		2914ECC02441B94C00164809 /* MINGVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGVideo.m; sourceTree = "<group>"; };
+		293F0F92244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileBaseCellWithArrow.h; sourceTree = "<group>"; };
+		293F0F93244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileBaseCellWithArrow.m; sourceTree = "<group>"; };
+		293F0F95244AE836002E65FC /* MINGProfileBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileBaseCell.h; sourceTree = "<group>"; };
+		293F0F96244AE836002E65FC /* MINGProfileBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileBaseCell.m; sourceTree = "<group>"; };
+		293F0F98244AE849002E65FC /* MINGProfileSimpleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileSimpleCell.h; sourceTree = "<group>"; };
+		293F0F99244AE849002E65FC /* MINGProfileSimpleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileSimpleCell.m; sourceTree = "<group>"; };
+		293F0F9E244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileUpdateSignatureViewModel.h; sourceTree = "<group>"; };
+		293F0F9F244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateSignatureViewModel.m; sourceTree = "<group>"; };
+		293F0FA1244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileUpdateNicknameViewModel.h; sourceTree = "<group>"; };
+		293F0FA2244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateNicknameViewModel.m; sourceTree = "<group>"; };
 		296036172447F80C008C9A50 /* MINGTweets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweets.h; sourceTree = "<group>"; };
 		296036182447F80C008C9A50 /* MINGTweets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGTweets.m; sourceTree = "<group>"; };
 		2960361A2447F81B008C9A50 /* MINGTweetsItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweetsItem.h; sourceTree = "<group>"; };
@@ -181,6 +197,8 @@
 		29AC20282423456A00641337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29AC202A2423456A00641337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29AC202B2423456A00641337 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29C849BA244AC5AD008170FB /* MINGProfileViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileViewModel.h; sourceTree = "<group>"; };
+		29C849BB244AC5AD008170FB /* MINGProfileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileViewModel.m; sourceTree = "<group>"; };
 		29CF68E0244736DD0066AECF /* MINGCircleTweetsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsListViewModel.h; sourceTree = "<group>"; };
 		29CF68E1244736DD0066AECF /* MINGCircleTweetsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleTweetsListViewModel.m; sourceTree = "<group>"; };
 		29CF68E6244737A20066AECF /* MINGCircleTweetsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGCircleTweetsListViewController.h; sourceTree = "<group>"; };
@@ -268,6 +286,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		293F0F8E244AE6A9002E65FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				293F0F92244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.h */,
+				293F0F93244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m */,
+				293F0F95244AE836002E65FC /* MINGProfileBaseCell.h */,
+				293F0F96244AE836002E65FC /* MINGProfileBaseCell.m */,
+				293F0F98244AE849002E65FC /* MINGProfileSimpleCell.h */,
+				293F0F99244AE849002E65FC /* MINGProfileSimpleCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2960361D24484120008C9A50 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,8 +359,9 @@
 		29911F622425FCC200E950F6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				29911F692425FD1C00E950F6 /* MINGProfileViewController.h */,
-				29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */,
+				293F0F8E244AE6A9002E65FC /* View */,
+				29C849B9244AC583008170FB /* ViewController */,
+				29C849B8244AC579008170FB /* ViewModel */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -588,6 +620,28 @@
 			path = MyCircle;
 			sourceTree = "<group>";
 		};
+		29C849B8244AC579008170FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				293F0F9E244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.h */,
+				293F0F9F244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m */,
+				29C849BA244AC5AD008170FB /* MINGProfileViewModel.h */,
+				29C849BB244AC5AD008170FB /* MINGProfileViewModel.m */,
+				293F0FA1244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.h */,
+				293F0FA2244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29C849B9244AC583008170FB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29911F692425FD1C00E950F6 /* MINGProfileViewController.h */,
+				29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		D3B3DE097141E1E3CB812F70 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,7 +779,9 @@
 				299E0BFC24487EC30017A97A /* MINGLoginPageViewController.m in Sources */,
 				299F39ED244465B600D1B918 /* MINGCommentItem.m in Sources */,
 				299E0BF4244869EA0017A97A /* MINGUserListViewModel.m in Sources */,
+				293F0FA3244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m in Sources */,
 				29CF68E2244736DD0066AECF /* MINGCircleTweetsListViewModel.m in Sources */,
+				293F0F94244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m in Sources */,
 				299F3A482446FEF200D1B918 /* XLNavigationController.m in Sources */,
 				2914ECB82441B46100164809 /* MINGTweetsDetailViewController.m in Sources */,
 				299E0C1C24493BB80017A97A /* MINGPublishTweetsViewModel.m in Sources */,
@@ -737,6 +793,7 @@
 				299F3A302446AE3F00D1B918 /* MINGCircleItem.m in Sources */,
 				299E0BEA244857CC0017A97A /* MINGUserItem.m in Sources */,
 				29911F6B2425FD1C00E950F6 /* MINGProfileViewController.m in Sources */,
+				293F0FA0244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m in Sources */,
 				29786E032443074900F9C3C7 /* MINGUser.m in Sources */,
 				299E0BF724486CBA0017A97A /* MINGUserTableViewCell.m in Sources */,
 				299F3A362446B5E100D1B918 /* MINGCircle.m in Sources */,
@@ -747,6 +804,7 @@
 				299F39F12445650A00D1B918 /* MINGCommentView.m in Sources */,
 				299E0C1424493B5B0017A97A /* MINGPublishTweetsViewController.m in Sources */,
 				299F3A0424469D8B00D1B918 /* MINGCirclePageViewModel.m in Sources */,
+				293F0F9A244AE849002E65FC /* MINGProfileSimpleCell.m in Sources */,
 				299F3A2D2446ABE300D1B918 /* MINGCircleSelectionCell.m in Sources */,
 				29CF68EB24474F1C0066AECF /* MINGTweetsTableViewCell.m in Sources */,
 				299F39EA2444637300D1B918 /* MINGVideoDetailViewModel.m in Sources */,
@@ -765,9 +823,11 @@
 				299F3AAB244723DC00D1B918 /* MINGCircleDetailViewModel.m in Sources */,
 				299F39F72445669D00D1B918 /* MINGCommentCell.m in Sources */,
 				299E0C0224487EE00017A97A /* MINGRegisterViewController.m in Sources */,
+				293F0F97244AE836002E65FC /* MINGProfileBaseCell.m in Sources */,
 				29AC201B2423456900641337 /* AppDelegate.m in Sources */,
 				29CF68E8244737A20066AECF /* MINGCircleTweetsListViewController.m in Sources */,
 				29AC202C2423456A00641337 /* main.m in Sources */,
+				29C849BC244AC5AD008170FB /* MINGProfileViewModel.m in Sources */,
 				299F3AA82447238A00D1B918 /* MINGCircleDetailController.m in Sources */,
 				299F3A0124469D6800D1B918 /* MINGCirclePageViewController.m in Sources */,
 				2914ECB52441B44800164809 /* MINGVideoDetailViewController.m in Sources */,
