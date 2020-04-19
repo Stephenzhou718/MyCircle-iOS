@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MINGProfileUpdateSignatureViewModel : NSObject
+
+@property (nonatomic, strong) NSString *signature;
+@property (nonatomic, strong) RACCommand *updateSignatureCommand;
 
 @end
 

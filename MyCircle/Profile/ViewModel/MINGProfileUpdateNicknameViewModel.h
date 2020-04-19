@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MINGProfileUpdateNicknameViewModel : NSObject
+
+@property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, strong) RACCommand *updateNicknameCommand;
 
 @end
 

@@ -18,7 +18,7 @@
 		293F0F9A244AE849002E65FC /* MINGProfileSimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F99244AE849002E65FC /* MINGProfileSimpleCell.m */; };
 		293F0FA0244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F9F244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m */; };
 		293F0FA3244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0FA2244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m */; };
-		293F0FA6244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0FA5244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.m */; };
+		293F0FA6244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0FA5244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.m */; };
 		293F0FA9244B2A8F002E65FC /* MINGProfileUpdateNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0FA8244B2A8F002E65FC /* MINGProfileUpdateNicknameViewController.m */; };
 		296036192447F80C008C9A50 /* MINGTweets.m in Sources */ = {isa = PBXBuildFile; fileRef = 296036182447F80C008C9A50 /* MINGTweets.m */; };
 		2960361C2447F81B008C9A50 /* MINGTweetsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2960361B2447F81B008C9A50 /* MINGTweetsItem.m */; };
@@ -101,8 +101,8 @@
 		293F0F9F244B29A1002E65FC /* MINGProfileUpdateSignatureViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateSignatureViewModel.m; sourceTree = "<group>"; };
 		293F0FA1244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileUpdateNicknameViewModel.h; sourceTree = "<group>"; };
 		293F0FA2244B29BC002E65FC /* MINGProfileUpdateNicknameViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateNicknameViewModel.m; sourceTree = "<group>"; };
-		293F0FA4244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileUpdateSigatureViewController.h; sourceTree = "<group>"; };
-		293F0FA5244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateSigatureViewController.m; sourceTree = "<group>"; };
+		293F0FA4244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileUpdateSignatureViewController.h; sourceTree = "<group>"; };
+		293F0FA5244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateSignatureViewController.m; sourceTree = "<group>"; };
 		293F0FA7244B2A8F002E65FC /* MINGProfileUpdateNicknameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileUpdateNicknameViewController.h; sourceTree = "<group>"; };
 		293F0FA8244B2A8F002E65FC /* MINGProfileUpdateNicknameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileUpdateNicknameViewController.m; sourceTree = "<group>"; };
 		296036172447F80C008C9A50 /* MINGTweets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGTweets.h; sourceTree = "<group>"; };
@@ -644,8 +644,8 @@
 			children = (
 				29911F692425FD1C00E950F6 /* MINGProfileViewController.h */,
 				29911F6A2425FD1C00E950F6 /* MINGProfileViewController.m */,
-				293F0FA4244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.h */,
-				293F0FA5244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.m */,
+				293F0FA4244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.h */,
+				293F0FA5244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.m */,
 				293F0FA7244B2A8F002E65FC /* MINGProfileUpdateNicknameViewController.h */,
 				293F0FA8244B2A8F002E65FC /* MINGProfileUpdateNicknameViewController.m */,
 			);
@@ -821,7 +821,7 @@
 				299F3A332446AF5E00D1B918 /* MINGCircleSelectionViewModel.m in Sources */,
 				299E0C0D244938630017A97A /* MINGTabBarViewController.m in Sources */,
 				29786E0A24430F2700F9C3C7 /* MINGVideoCellView.m in Sources */,
-				293F0FA6244B2A79002E65FC /* MINGProfileUpdateSigatureViewController.m in Sources */,
+				293F0FA6244B2A79002E65FC /* MINGProfileUpdateSignatureViewController.m in Sources */,
 				299F3A2A2446ABC100D1B918 /* MINGCircleSelectionViewController.m in Sources */,
 				2914ECB22441AB7900164809 /* MINGPublishViewController.m in Sources */,
 				299E0C0624487F3F0017A97A /* MINGLoginViewModel.m in Sources */,

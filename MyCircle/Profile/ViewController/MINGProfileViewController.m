@@ -13,6 +13,10 @@
 #import "MINGUserListViewModel.h"
 #import "MINGUserListViewController.h"
 #import "UIColor+Hex.h"
+#import "MINGProfileUpdateNicknameViewModel.h"
+#import "MINGProfileUpdateNicknameViewController.h"
+#import "MINGProfileUpdateSignatureViewModel.h"
+#import "MINGProfileUpdateSignatureViewController.h"
 
 #import <SDWebImage/SDWebImage.h>
 #import <Masonry/Masonry.h>
@@ -154,12 +158,16 @@ UINavigationControllerDelegate
 
 - (void)signatureCellDidTapped:(id)sender
 {
-    
+    MINGProfileUpdateSignatureViewModel *viewModel = [[MINGProfileUpdateSignatureViewModel alloc] init];
+    MINGProfileUpdateSignatureViewController *controller = [[MINGProfileUpdateSignatureViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)nickNameCellDidTapped:(id)sender
 {
-    
+    MINGProfileUpdateNicknameViewModel *viewModel = [[MINGProfileUpdateNicknameViewModel alloc] init];
+    MINGProfileUpdateNicknameViewController *controller = [[MINGProfileUpdateNicknameViewController alloc] initWithViewModel:viewModel];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)followerCellDidTapped:(id)sender
