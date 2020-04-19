@@ -10,6 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MINGCommentCell;
+
+@protocol MINGCommentCellDelegate <NSObject>
+
+- (void)commentCellDidClickedLikeButton:(MINGCommentCell *)cell;
+
+@end
+
 @interface MINGCommentCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *authorAvatar;
@@ -18,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UIImageView *likeIcon;
 @property (nonatomic, strong) UILabel *likeCountLabel;
+
+@property (nonatomic, weak) id<MINGCommentCellDelegate> delegate;
 
 @end
 

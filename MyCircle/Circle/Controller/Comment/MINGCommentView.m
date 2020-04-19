@@ -15,7 +15,7 @@
 #import <SDWebImage/SDWebImage.h>
 #import <MJRefresh/MJRefresh.h>
 
-@interface MINGCommentView () <UITableViewDataSource, UITableViewDelegate>
+@interface MINGCommentView () <UITableViewDataSource, UITableViewDelegate, MINGCommentCellDelegate>
 
 @property (nonatomic, strong) UIView *commentCountView;
 @property (nonatomic, strong) UILabel *commentCountLabel;
@@ -159,8 +159,35 @@
     cell.authorNickNameLabel.text = commentItem.author.nickname;
     cell.commentLabel.text = commentItem.comment.content;
     cell.likeCountLabel.text = [NSString stringWithFormat:@"%@", @(commentItem.comment.likeCount)];
-    cell.timeLabel.text = [MINGTools converTimeStampToString:commentItem.comment.time];;
+    cell.timeLabel.text = [MINGTools converTimeStampToString:commentItem.comment.time];
+    if (commentItem.like == 1) {
+        cell.likeIcon.image = [UIImage imageNamed:@"like_active"];
+    } else {
+        cell.likeIcon.image = [UIImage imageNamed:@"like"];
+    }
+    cell.delegate = self;
     return cell;
+}
+
+#pragma mark - MINGCommentCellDelegate
+
+- (void)commentCellDidClickedLikeButton:(MINGCommentCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    MINGCommentItem *commentItem = self.viewModel.commentItems[indexPath.row];
+    if (commentItem.like == 1) {
+        // 取消点赞
+        [self.viewModel.disLikeCommand execute:commentItem.comment.commentId];
+        commentItem.like = 0;
+        commentItem.comment.likeCount = commentItem.comment.likeCount - 1;
+        [self.tableView reloadData];
+    } else {
+        // 点赞
+        [self.viewModel.likeCommand execute:commentItem.comment.commentId];
+        commentItem.like = 1;
+        commentItem.comment.likeCount = commentItem.comment.likeCount + 1;
+        [self.tableView reloadData];
+    }
 }
 
 

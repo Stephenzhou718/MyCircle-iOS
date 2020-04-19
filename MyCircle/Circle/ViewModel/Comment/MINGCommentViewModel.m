@@ -131,5 +131,76 @@
     return _loadMoreCommand;
 }
 
+- (RACCommand<NSString *,id> *)likeCommand
+{
+    if (!_likeCommand) {
+        _likeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSString * input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"cookie"] forHTTPHeaderField:@"ticket"];
+                
+                NSString *url = @"http://127.0.0.1:8080/require_login/like";
+                NSDictionary *params = @{
+                    @"EventType" : @(MINGContentTypeComment),
+                    @"eventId" : input
+                };
+                
+                [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+                        NSNumber *likeCount = [NSNumber numberWithInt:(int)[responseObject objectForKey:@"msg"]];
+                        [subscriber sendNext: likeCount];
+                        [subscriber sendCompleted];
+                    } else {
+                        [subscriber sendError:nil];
+                    }
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:error];
+                }];
+                
+                return nil;
+            }];
+        }];
+    }
+    return _likeCommand;
+}
+
+- (RACCommand<NSString *,NSNumber *> *)disLikeCommand
+{
+    if (!_disLikeCommand) {
+        _disLikeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"cookie"] forHTTPHeaderField:@"ticket"];
+                
+                NSString *url = @"http://127.0.0.1:8080/require_login/dislike";
+                NSDictionary *params = @{
+                    @"EventType" : @(MINGContentTypeComment),
+                    @"eventId" : input
+                };
+                
+                [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+                        NSInteger likeCount = (int)[responseObject objectForKey:@"msg"];
+                        [subscriber sendNext: @(likeCount)];
+                        [subscriber sendCompleted];
+                    } else {
+                        [subscriber sendError:nil];
+                    }
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:error];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _disLikeCommand;
+}
+
 
 @end

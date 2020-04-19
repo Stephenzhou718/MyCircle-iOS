@@ -93,7 +93,7 @@
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey:@"网络请求错误"};
                     [subscriber sendError:[NSError errorWithDomain:NSCocoaErrorDomain code:0 userInfo:userInfo]];
-                    NSLog(error);
+//                    NSLog(error);
                 }];
                 return nil;
             }];

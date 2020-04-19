@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <WMPlayer/WMPlayer.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,9 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) MINGVideo *video;
 @property (nonatomic, strong) MINGUser *author;
+@property (nonatomic, assign) Boolean followAuthor;
 @property (nonatomic, copy) NSMutableArray<MINGCommentItem *> *comments;
 
 @property (nonatomic, strong) WMPlayerModel *playerModel;
+
+@property (nonatomic, strong) RACCommand<NSString *, id> *commentCommand;
+@property (nonatomic, strong) RACCommand<NSString *, id> *followCommand;
+@property (nonatomic, strong) RACCommand<NSString *, id> *unFollowCommand;
 
 - (instancetype)initWithVideoItem:(MINGVideoItem *)videoItem;
 

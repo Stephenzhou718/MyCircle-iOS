@@ -15,6 +15,7 @@
 #import <WMPlayer/WMPlayer.h>
 #import <Masonry/Masonry.h>
 #import <SDWebImage/SDWebImage.h>
+#import <Toast/Toast.h>
 
 @interface MINGVideoDetailViewController ()<WMPlayerDelegate, UITextViewDelegate>
 
@@ -80,6 +81,40 @@
      ];
     
     self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    if (self.viewModel.followAuthor) {
+        self.followButton.selected = YES;
+        self.followButton.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+    } else {
+        self.followButton.selected = NO;
+        self.followButton.backgroundColor = [UIColor orangeColor];
+    }
+    
+    @weakify(self)
+    [[self.viewModel.commentCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.commentViewModel.refreshCommand execute:nil];
+        
+        [self.commentInputView resignFirstResponder];
+        [self.view makeToast:@"评论成功" duration:1 position:CSToastPositionCenter];
+        // 发布评论完成后，清空评论框
+        UITextRange *textRange = [self.commentInputView textRangeFromPosition:self.commentInputView.beginningOfDocument toPosition:self.commentInputView.endOfDocument];
+        [self.commentInputView replaceRange:textRange withText:@""];
+    }];
+    
+    [[self.viewModel.followCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.view makeToast:@"关注成功" duration:1 position:CSToastPositionCenter];
+        self.followButton.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+        self.followButton.selected = YES;
+    }];
+    
+    [[self.viewModel.unFollowCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.view makeToast:@"取消关注成功" duration:1 position:CSToastPositionCenter];
+        self.followButton.backgroundColor = [UIColor orangeColor];
+        self.followButton.selected = NO;
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -181,7 +216,7 @@
     [self.videoDescriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.videoTitleLabel);
         make.trailing.equalTo(self.videoInfoView).offset(-80);
-        make.top.equalTo(self.videoTitleLabel.mas_bottom).offset(4);
+        make.top.equalTo(self.videoTitleLabel.mas_bottom).offset(2);
         make.width.and.height.greaterThanOrEqualTo(@0);
     }];
     
@@ -307,6 +342,30 @@
             break;
         default:
             break;
+    }
+}
+
+
+#pragma mark - Actions
+
+- (void)sendButtonDidClicked:(id)sender
+{
+    if (self.commentInputView.text != nil && ![self.commentInputView.text isEqualToString:@""]) {
+        [self.viewModel.commentCommand execute:self.commentInputView.text];
+    } else {
+        [self.view makeToast:@"不可以发空评论哦～" duration:1 position:CSToastPositionTop];
+    }
+    
+}
+
+- (void)followButtonDidClicked:(id)sender
+{
+    if (self.followButton.isSelected) {
+        //  取消关注
+        [self.viewModel.unFollowCommand execute:self.viewModel.author.username];
+    } else {
+        // 关注
+        [self.viewModel.followCommand execute:self.viewModel.author.username];
     }
 }
 
@@ -494,6 +553,8 @@
         _followButton.titleLabel.textColor = [UIColor whiteColor];
         _followButton.titleLabel.font = [UIFont systemFontOfSize:12];
         [_followButton setTitle:@"+关注" forState:UIControlStateNormal];
+        [_followButton setTitle:@"已关注" forState:UIControlStateSelected];
+        [_followButton addTarget:self action:@selector(followButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _followButton;
 }
@@ -512,7 +573,7 @@
 {
     if (!_videoTitleLabel) {
         _videoTitleLabel = [[UILabel alloc] init];
-        _videoTitleLabel.font = [UIFont systemFontOfSize:14];
+        _videoTitleLabel.font = [UIFont systemFontOfSize:16];
     }
     return _videoTitleLabel;
 }
@@ -522,7 +583,7 @@
     if (!_videoDescriptionLabel) {
         _videoDescriptionLabel = [[UILabel alloc] init];
         _videoDescriptionLabel.numberOfLines = 0;
-        _videoDescriptionLabel.font = [UIFont systemFontOfSize:10];
+        _videoDescriptionLabel.font = [UIFont systemFontOfSize:14];
         _videoDescriptionLabel.textColor = [UIColor colorWithHexString:@"808080"];
     }
     return _videoDescriptionLabel;
@@ -533,6 +594,7 @@
     if (!_commentView) {
         _commentView = [[UIView alloc] init];
         _commentView.backgroundColor = [UIColor whiteColor];
+        _commentView.userInteractionEnabled = YES;
     }
     return _commentView;
 }
@@ -561,6 +623,7 @@
         _sendButton.titleLabel.textColor = [UIColor whiteColor];
         _sendButton.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
         [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [_sendButton addTarget:self action:@selector(sendButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sendButton;
 }

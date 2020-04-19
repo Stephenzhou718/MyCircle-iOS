@@ -141,7 +141,7 @@ XLPageViewControllerDataSrouce
     }];
     [self.joinCircleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.circleMembersView.mas_trailing).offset(40);
-        make.centerY.equalTo(self.circleMemberCountLabel);
+        make.centerY.equalTo(self.circleMembersView);
         make.width.equalTo(@114);
         make.height.equalTo(@30);
     }];
@@ -197,6 +197,17 @@ XLPageViewControllerDataSrouce
     MINGUserListViewModel *viewModel = [[MINGUserListViewModel alloc] initWithMINGUserItems:self.viewModel.circleMembers];
     MINGUserListViewController *controller = [[MINGUserListViewController alloc] initWithViewModel:viewModel];
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)joinCircleButtonDidClicked:(id)sender
+{
+    if (self.joinCircleButton.isSelected) {
+        // 退出圈子
+        
+    } else {
+        // 加入圈子
+        
+    }
 }
 
 #pragma mark - XLPageViewControllerDelegate
@@ -337,8 +348,11 @@ XLPageViewControllerDataSrouce
 {
     if (!_joinCircleButton) {
         _joinCircleButton = [[UIButton alloc] init];
-        _joinCircleButton.layer.cornerRadius = 5;
+        _joinCircleButton.layer.cornerRadius = 15;
         _joinCircleButton.layer.masksToBounds = YES;
+        [_joinCircleButton setTitle:@"+加入圈子" forState:UIControlStateNormal];
+        [_joinCircleButton setTitle:@"退出圈子" forState:UIControlStateSelected];
+        _joinCircleButton.backgroundColor = [UIColor orangeColor];
         _joinCircleButton.titleLabel.textColor = [UIColor whiteColor];
         _joinCircleButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightBold];
     }

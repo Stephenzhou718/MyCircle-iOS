@@ -14,13 +14,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, MINGContentType) {
-    MINGContentTypeVideo,
-    MINGContentTypeTweets
+    MINGContentTypeVideo,       // 视频
+    MINGContentTypeTweets,      // 图文
+    MINGContentTypeComment      // 评论
 };
 
 @interface MINGCommentViewModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray<MINGCommentItem *> *commentItems;
+
+@property (nonatomic, strong) RACCommand<NSString *, id> *likeCommand;
+@property (nonatomic, strong) RACCommand<NSString *, NSNumber *> *disLikeCommand;
 @property (nonatomic, strong) RACCommand *refreshCommand;
 @property (nonatomic, strong) RACCommand *loadMoreCommand;
 

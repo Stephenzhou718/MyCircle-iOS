@@ -85,6 +85,15 @@
     }];
 }
 
+#pragma mark - Action
+
+- (void)likeIconDidClicked:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(commentCellDidClickedLikeButton:)]) {
+        [self.delegate commentCellDidClickedLikeButton:self];
+    }
+}
+
 #pragma mark - lazy load
 
 - (UIImageView *)authorAvatar
@@ -131,6 +140,8 @@
     if (!_likeIcon) {
         _likeIcon = [[UIImageView alloc] init];
         _likeIcon.image = [UIImage imageNamed:@"like"];
+        _likeIcon.userInteractionEnabled = YES;
+        [_likeIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeIconDidClicked:)]];
     }
     return _likeIcon;
 }
