@@ -66,6 +66,15 @@ XLPageViewControllerDataSrouce
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
+    
+    if (self.viewModel.circleItem.hasJoined) {
+        self.joinCircleButton.selected = YES;
+        self.joinCircleButton.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+    } else {
+        self.joinCircleButton.selected = NO;
+        self.joinCircleButton.backgroundColor = [UIColor orangeColor];
+    }
+    
     @weakify(self)
     [[self.viewModel.getCircleMembersCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
@@ -81,7 +90,19 @@ XLPageViewControllerDataSrouce
     
         self.circleMemberCountLabel.text = [NSString stringWithFormat:@"共有 %@ 名圈友", @(self.viewModel.circleMembers.count)];
     }];
+    
+    [[self.viewModel.joinCircleCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        self.joinCircleButton.selected = YES;
+        self.joinCircleButton.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+    }];
+    
+    [[self.viewModel.quitCircleCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        self.joinCircleButton.selected = NO;
+        self.joinCircleButton.backgroundColor = [UIColor orangeColor];
+    }];
+    
     [self.viewModel.getCircleMembersCommand execute:nil];
+    
     
 }
 
@@ -203,10 +224,10 @@ XLPageViewControllerDataSrouce
 {
     if (self.joinCircleButton.isSelected) {
         // 退出圈子
-        
+        [self.viewModel.quitCircleCommand execute:nil];
     } else {
         // 加入圈子
-        
+        [self.viewModel.joinCircleCommand execute:nil];
     }
 }
 
@@ -355,6 +376,7 @@ XLPageViewControllerDataSrouce
         _joinCircleButton.backgroundColor = [UIColor orangeColor];
         _joinCircleButton.titleLabel.textColor = [UIColor whiteColor];
         _joinCircleButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightBold];
+        [_joinCircleButton addTarget:self action:@selector(joinCircleButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _joinCircleButton;
 }
@@ -374,6 +396,8 @@ XLPageViewControllerDataSrouce
 {
     if (!_pageViewController) {
         XLPageViewControllerConfig *config = [XLPageViewControllerConfig defaultConfig];
+        config.titleSelectedColor = [UIColor orangeColor];
+        config.shadowLineColor = [UIColor orangeColor];
         config.showTitleInNavigationBar = false;
         config.titleViewStyle = XLPageTitleViewStyleBasic;
         config.textVerticalAlignment = XLPageTitleViewAlignmentLeft;

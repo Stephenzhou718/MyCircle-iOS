@@ -29,6 +29,7 @@
     self = [super init];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
+        self.tabBar.tintColor = [UIColor orangeColor];
         
         // 首页
         MINGCircleVideoListViewModel *videoListViewModel = [[MINGCircleVideoListViewModel alloc] init];
@@ -56,7 +57,6 @@
         profileViewController.tabBarItem.title = @"我的";
         profileViewController.tabBarItem.image = [UIImage imageNamed:@"me"];
         profileViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"me_active"];
-    
         
         [self setViewControllers:@[videoListViewController, circlePageViewController, publishViewController, profileViewController]];
     }

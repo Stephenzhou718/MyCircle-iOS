@@ -69,7 +69,7 @@ XLPageViewControllerDataSrouce
         return controller;
         
     } else {
-        MINGCircleSelectionViewModel *viewModel = [[MINGCircleSelectionViewModel alloc] initWithSelectionType:MINGCircleSelectionTypeAll];
+        MINGCircleSelectionViewModel *viewModel = [[MINGCircleSelectionViewModel alloc] initWithSelectionType:MINGCircleSelectionTypeMine];
         MINGCircleSelectionViewController *controller = [[MINGCircleSelectionViewController alloc] initWithViewModel:viewModel];
         return controller;
     }

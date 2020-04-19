@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray<MINGUserItem *> *circleMembers;
 
 @property (nonatomic, strong) RACCommand *getCircleMembersCommand;
+@property (nonatomic, strong) RACCommand *joinCircleCommand;
+@property (nonatomic, strong) RACCommand *quitCircleCommand;
 
 - (instancetype)initWithCircleItem:(MINGCircleItem *)circleItem;
 

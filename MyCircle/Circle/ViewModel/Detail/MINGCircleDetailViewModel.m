@@ -72,5 +72,73 @@
     return _getCircleMembersCommand;
 }
 
+- (RACCommand *)joinCircleCommand
+{
+    if (!_joinCircleCommand) {
+        _joinCircleCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"cookie"] forHTTPHeaderField:@"ticket"];
+                
+                NSString *url = @"http://127.0.0.1:8080/require_login/circle/join_circle";
+                NSDictionary *params = @{
+                    @"circleId" : self.circleItem.circle.circleId
+                };
+                
+                [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+                        [subscriber sendNext:@YES];
+                        [subscriber sendCompleted];
+                    } else {
+                        [subscriber sendError:nil];
+                    }
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:error];
+                }];
+                
+                return nil;
+            }];
+        }];
+    }
+    return _joinCircleCommand;
+}
+
+- (RACCommand *)quitCircleCommand
+{
+    if (!_quitCircleCommand) {
+        _quitCircleCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"cookie"] forHTTPHeaderField:@"ticket"];
+                
+                NSString *url = @"http://127.0.0.1:8080/require_login/circle/quit_circle";
+                NSDictionary *params = @{
+                    @"circleId" : self.circleItem.circle.circleId
+                };
+                
+                [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([[responseObject objectForKey:@"code"] isEqualToNumber:@0]) {
+                        [subscriber sendNext:@YES];
+                        [subscriber sendCompleted];
+                    } else {
+                        [subscriber sendError:nil];
+                    }
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:error];
+                }];
+                
+                return nil;
+            }];
+        }];
+    }
+    return _quitCircleCommand;
+}
+
 
 @end

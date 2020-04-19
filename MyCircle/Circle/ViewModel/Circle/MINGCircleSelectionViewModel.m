@@ -36,13 +36,15 @@
         _refreshCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                [manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"cookie"] forHTTPHeaderField:@"ticket"];
                 
                 // 请求
                 NSString *url = @"";
                 if (self.type == MINGCircleSelectionTypeAll) {
                     url = @"http://127.0.0.1:8080/circle/get_all_circles";
                 } else {
-                    url = @"http://127.0.0.1:8080/circle/get_joined_circles";
+                    url = @"http://127.0.0.1:8080/require_login/get_joined_circles";
                 }
                 url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"#%^{}\"[]|\\<> "].invertedSet];
                 
