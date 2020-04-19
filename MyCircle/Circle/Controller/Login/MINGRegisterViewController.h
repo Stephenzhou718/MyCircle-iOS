@@ -6,7 +6,7 @@
 //  Copyright © 2020 周汉明. All rights reserved.
 //
 
-#import "MINGLoginViewModel.h"
+#import "MINGRegisterViewModel.h"
 
 #import <UIKit/UIKit.h>
 
@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MINGRegisterViewController : UIViewController
 
-- (instancetype)initWithViewModel:(MINGLoginViewModel *)viewModel;
+- (instancetype)initWithViewModel:(MINGRegisterViewModel *)viewModel;
 
 @end
 

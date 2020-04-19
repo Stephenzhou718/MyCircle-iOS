@@ -8,6 +8,7 @@
 
 #import "MINGLoginPageViewController.h"
 #import "MINGLoginViewModel.h"
+#import "MINGRegisterViewModel.h"
 #import "MINGLoginViewController.h"
 #import "MINGRegisterViewController.h"
 #import "XLPageViewController.h"
@@ -86,7 +87,7 @@ XLPageViewControllerDataSrouce
         MINGLoginViewController *controller = [[MINGLoginViewController alloc] initWithViewModel:viewModel];
         return controller;
     } else {
-        MINGLoginViewModel *viewModel = [[MINGLoginViewModel alloc] init];
+        MINGRegisterViewModel *viewModel = [[MINGRegisterViewModel alloc] init];
         MINGRegisterViewController *controller = [[MINGRegisterViewController alloc] initWithViewModel:viewModel];
         return controller;
     }

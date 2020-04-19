@@ -133,7 +133,7 @@
         _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
         [_loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_loginButton addTarget:self action:@selector(loginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_loginButton addTarget:self action:@selector(registerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginButton;
 }

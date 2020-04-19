@@ -13,6 +13,7 @@
 		2914ECB82441B46100164809 /* MINGTweetsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECB72441B46100164809 /* MINGTweetsDetailViewController.m */; };
 		2914ECBE2441B91C00164809 /* MINGCircleVideoListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */; };
 		2914ECC12441B94C00164809 /* MINGVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2914ECC02441B94C00164809 /* MINGVideo.m */; };
+		291FD6F8244C7D5D003CC0F8 /* MINGRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 291FD6F7244C7D5D003CC0F8 /* MINGRegisterViewModel.m */; };
 		293F0F94244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F93244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m */; };
 		293F0F97244AE836002E65FC /* MINGProfileBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F96244AE836002E65FC /* MINGProfileBaseCell.m */; };
 		293F0F9A244AE849002E65FC /* MINGProfileSimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 293F0F99244AE849002E65FC /* MINGProfileSimpleCell.m */; };
@@ -91,6 +92,8 @@
 		2914ECBD2441B91C00164809 /* MINGCircleVideoListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGCircleVideoListViewModel.m; sourceTree = "<group>"; };
 		2914ECBF2441B94C00164809 /* MINGVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGVideo.h; sourceTree = "<group>"; };
 		2914ECC02441B94C00164809 /* MINGVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGVideo.m; sourceTree = "<group>"; };
+		291FD6F6244C7D5D003CC0F8 /* MINGRegisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGRegisterViewModel.h; sourceTree = "<group>"; };
+		291FD6F7244C7D5D003CC0F8 /* MINGRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGRegisterViewModel.m; sourceTree = "<group>"; };
 		293F0F92244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileBaseCellWithArrow.h; sourceTree = "<group>"; };
 		293F0F93244AE7FB002E65FC /* MINGProfileBaseCellWithArrow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MINGProfileBaseCellWithArrow.m; sourceTree = "<group>"; };
 		293F0F95244AE836002E65FC /* MINGProfileBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MINGProfileBaseCell.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 			children = (
 				299E0C0424487F3F0017A97A /* MINGLoginViewModel.h */,
 				299E0C0524487F3F0017A97A /* MINGLoginViewModel.m */,
+				291FD6F6244C7D5D003CC0F8 /* MINGRegisterViewModel.h */,
+				291FD6F7244C7D5D003CC0F8 /* MINGRegisterViewModel.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				2960361C2447F81B008C9A50 /* MINGTweetsItem.m in Sources */,
 				29786E062443085E00F9C3C7 /* MINGVideoItem.m in Sources */,
 				299E0BF1244869D20017A97A /* MINGUserListViewController.m in Sources */,
+				291FD6F8244C7D5D003CC0F8 /* MINGRegisterViewModel.m in Sources */,
 				299F3AAB244723DC00D1B918 /* MINGCircleDetailViewModel.m in Sources */,
 				299F39F72445669D00D1B918 /* MINGCommentCell.m in Sources */,
 				299E0C0224487EE00017A97A /* MINGRegisterViewController.m in Sources */,
