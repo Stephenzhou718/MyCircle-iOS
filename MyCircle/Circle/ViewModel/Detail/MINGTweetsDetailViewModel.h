@@ -16,9 +16,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MINGTweetsDetailViewModel : NSObject
 
-@property (nonatomic, strong) MINGTweetsItem *tweetsItem;
+@property (nonatomic, strong) MINGUser *author;
+@property (nonatomic, strong) MINGTweets *tweets;
+@property (nonatomic, assign) NSInteger like;
+@property (nonatomic, assign) Boolean followAuthor;
+
+//@property (nonatomic, strong) MINGTweetsItem *tweetsItem;
 
 - (instancetype)initWithTweetsItem:(MINGTweetsItem *)tweetsItem;
+
+@property (nonatomic, strong) RACCommand *likeCommand;
+@property (nonatomic, strong) RACCommand *disLikeCommand;
+@property (nonatomic, strong) RACCommand<NSString *, id> *commentCommand;
+@property (nonatomic, strong) RACCommand<NSString *, id> *followCommand;
+@property (nonatomic, strong) RACCommand<NSString *, id> *unFollowCommand;
 
 @end
 

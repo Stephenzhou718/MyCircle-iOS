@@ -12,16 +12,18 @@
 #import "UIColor+Hex.h"
 #import "MINGTools.h"
 
+
 #import <Masonry/Masonry.h>
 #import <SDWebImage/SDWebImage.h>
+#import <Toast/Toast.h>
 
-@interface MINGTweetsDetailViewController ()
+@interface MINGTweetsDetailViewController () <UITextViewDelegate>
 
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) UIImageView *authorAvatar;
 @property (nonatomic, strong) UILabel *authorNameLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
-@property (nonatomic, strong) UIButton *folllowButton;
+@property (nonatomic, strong) UIButton *followButton;
 @property (nonatomic, strong) UILabel *contentlabel;
 @property (nonatomic, strong) UIImageView *imageOne;
 @property (nonatomic, strong) UIImageView *imageTwo;
@@ -34,7 +36,16 @@
 @property (nonatomic, strong) UIImageView *commentIcon;
 @property (nonatomic, strong) UILabel *commentCountLabel;
 
-@property (nonatomic, strong) MINGCommentView *commentView;
+//评论输入框
+@property (nonatomic, strong) UIView *commentView;
+@property (nonatomic, strong) UITextView *commentInputView;
+@property (nonatomic, strong) UIButton *sendButton;
+
+// 评论列表
+@property (nonatomic, strong) MINGCommentViewModel *commentViewModel;
+@property (nonatomic, strong) MINGCommentView *commentListView;
+
+@property (nonatomic, assign) NSInteger like;
 
 @property (nonatomic, strong) MINGTweetsDetailViewModel *viewModel;
 
@@ -47,6 +58,8 @@
     self = [super init];
     if (self) {
         self.viewModel = viewModel;
+        self.commentViewModel = [[MINGCommentViewModel alloc] initWithContentType:MINGContentTypeTweets eventId:self.viewModel.tweets.tweetsId];
+        self.like = viewModel.like;
         [self configSubViews];
         [self loadData];
     }
@@ -55,7 +68,60 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if (self.viewModel.followAuthor) {
+        self.followButton.selected = YES;
+        self.followButton.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+    } else {
+        self.followButton.selected = NO;
+        self.followButton.backgroundColor = [UIColor orangeColor];
+    }
+    
+    if (self.like == 1) {
+        self.likeIcon.image = [UIImage imageNamed:@"like_active"];
+    } else {
+        self.likeIcon.image = [UIImage imageNamed:@"like"];
+    }
+    
+    @weakify(self)
+    [[self.viewModel.commentCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.commentViewModel.refreshCommand execute:nil];
+        
+        [self.commentInputView resignFirstResponder];
+        [self.view makeToast:@"评论成功" duration:1 position:CSToastPositionCenter];
+        // 发布评论完成后，清空评论框
+        UITextRange *textRange = [self.commentInputView textRangeFromPosition:self.commentInputView.beginningOfDocument toPosition:self.commentInputView.endOfDocument];
+        [self.commentInputView replaceRange:textRange withText:@""];
+    }];
+    
+    [[self.viewModel.followCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.view makeToast:@"关注成功" duration:1 position:CSToastPositionCenter];
+        self.followButton.backgroundColor = [UIColor colorWithHexString:@"F0F0F0"];
+        self.followButton.selected = YES;
+    }];
+    
+    [[self.viewModel.unFollowCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.view makeToast:@"取消关注成功" duration:1 position:CSToastPositionCenter];
+        self.followButton.backgroundColor = [UIColor orangeColor];
+        self.followButton.selected = NO;
+    }];
+    
+    
+    [[self.viewModel.likeCommand.executionSignals switchToLatest] subscribeNext:^(NSNumber *x) {
+        @strongify(self)
+        self.likeIcon.image = [UIImage imageNamed:@"like_active"];
+        self.like = 1;
+        self.likeCountLabel.text = [NSString stringWithFormat:@"%@", x];
+    }];
+    
+    [[self.viewModel.disLikeCommand.executionSignals switchToLatest] subscribeNext:^(NSNumber *x) {
+        @strongify(self)
+        self.like = 0;
+        self.likeIcon.image = [UIImage imageNamed:@"like"];
+        self.likeCountLabel.text = [NSString stringWithFormat:@"%@", x];
+    }];
 }
 
 - (void)configSubViews
@@ -69,7 +135,7 @@
     [self.backView addSubview:self.authorAvatar];
     [self.backView addSubview:self.authorNameLabel];
     [self.backView addSubview:self.timeLabel];
-    [self.backView addSubview:self.folllowButton];
+    [self.backView addSubview:self.followButton];
     [self.backView addSubview:self.contentlabel];
     [self.backView addSubview:self.imagesPanel];
     [self.backView addSubview:self.likeIcon];
@@ -77,6 +143,7 @@
     [self.backView addSubview:self.commentIcon];
     [self.backView addSubview:self.commentCountLabel];
     [self.backView addSubview:self.commentView];
+    [self.backView addSubview:self.commentListView];
     
     [self.authorAvatar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.backView).offset(10);
@@ -96,10 +163,10 @@
         make.height.and.width.greaterThanOrEqualTo(@0);
     }];
     
-    [self.folllowButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.followButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.backView).offset(-10);
         make.centerY.equalTo(self.authorAvatar);
-        make.width.equalTo(@64);
+        make.width.equalTo(@50);
         make.height.equalTo(@24);
     }];
     
@@ -112,7 +179,7 @@
     
     [self.imagesPanel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.authorNameLabel);
-        make.trailing.equalTo(self.folllowButton);
+        make.trailing.equalTo(self.followButton);
         make.top.equalTo(self.contentlabel.mas_bottom).offset(8);
         make.height.equalTo(@111.5);
     }];
@@ -142,8 +209,14 @@
     }];
     
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.and.trailing.equalTo(self.backView);
+        make.top.equalTo(self.commentIcon.mas_bottom);
+        make.height.equalTo(@40);
+    }];
+    
+    [self.commentListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.bottom.equalTo(self.backView);
-        make.top.equalTo(self.commentIcon.mas_bottom).offset(8);
+        make.top.equalTo(self.commentView.mas_bottom).offset(8);
     }];
     
     [self.imagesPanel addSubview:self.imageOne];
@@ -167,19 +240,36 @@
         make.top.equalTo(self.imagesPanel);
         make.width.and.height.equalTo(@111.5);
     }];
+    
+    [self.commentView addSubview:self.commentInputView];
+    [self.commentView addSubview:self.sendButton];
+    
+    [self.sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.equalTo(self.commentView).offset(-8);
+        make.centerY.equalTo(self.commentView);
+        make.width.equalTo(@50);
+        make.height.equalTo(@25);
+    }];
+    
+    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.commentView).offset(8);
+        make.trailing.equalTo(self.sendButton.mas_leading).offset(-8);
+        make.centerY.equalTo(self.commentView);
+        make.height.equalTo(@30);
+    }];
 }
 
 - (void)loadData
 {
-    MINGTweetsItem *tweetsItem = self.viewModel.tweetsItem;
-    [self.authorAvatar sd_setImageWithURL:[NSURL URLWithString:tweetsItem.author.headUrl]];
-    self.authorNameLabel.text = tweetsItem.author.nickname;
-    self.timeLabel.text = [MINGTools converTimeStampToString:tweetsItem.tweets.time];
-    self.contentlabel.text = tweetsItem.tweets.content;
-    self.likeCountLabel.text = [NSString stringWithFormat:@"%@",@(tweetsItem.tweets.likeCount)];
-    self.commentCountLabel.text = [NSString stringWithFormat:@"%@",@(tweetsItem.tweets.commentCount)];
+//    MINGTweetsItem *tweetsItem = self.viewModel.tweetsItem;
+    [self.authorAvatar sd_setImageWithURL:[NSURL URLWithString:self.viewModel.author.headUrl]];
+    self.authorNameLabel.text = self.viewModel.author.nickname;
+    self.timeLabel.text = [MINGTools converTimeStampToString:self.viewModel.tweets.time];
+    self.contentlabel.text = self.viewModel.tweets.content;
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%@",@(self.viewModel.tweets.likeCount)];
+    self.commentCountLabel.text = [NSString stringWithFormat:@"%@",@(self.viewModel.tweets.commentCount)];
     
-    NSArray<NSURL *> *urls = [MINGTools spiltStringToUrls:tweetsItem.tweets.imgs];
+    NSArray<NSURL *> *urls = [MINGTools spiltStringToUrls:self.viewModel.tweets.imgs];
     if (urls.count >= 1) {
         [self.imageOne sd_setImageWithURL:urls[0]];
     }
@@ -191,6 +281,52 @@
     }
 }
 
+#pragma mark - Actions
+
+- (void)sendButtonDidClicked:(id)sender
+{
+    if (self.commentInputView.text != nil && ![self.commentInputView.text isEqualToString:@""]) {
+        [self.viewModel.commentCommand execute:self.commentInputView.text];
+    } else {
+        [self.view makeToast:@"不可以发空评论哦～" duration:1 position:CSToastPositionTop];
+    }
+}
+
+- (void)followButtonDidClicked:(id)sender
+{
+    if (self.followButton.isSelected) {
+        //  取消关注
+        [self.viewModel.unFollowCommand execute:self.viewModel.author.username];
+    } else {
+        // 关注
+        [self.viewModel.followCommand execute:self.viewModel.author.username];
+    }
+}
+
+- (void)likeIconDidClicked:(id)sender
+{
+    if (self.like == 1) {
+        // 取消点赞
+        [self.viewModel.disLikeCommand execute:nil];
+        self.likeIcon.image = [UIImage imageNamed:@"like"];
+    } else {
+        // 点赞
+        [self.viewModel.likeCommand execute:nil];
+        self.likeIcon.image = [UIImage imageNamed:@"like_active"];
+    }
+}
+
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(nonnull NSString *)text
+{
+    if ([text isEqual:@"\n"]) {//判断按的是不是return
+        [self.commentInputView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
 
 #pragma mark - lazy load
 
@@ -233,15 +369,21 @@
     return _timeLabel;
 }
 
-- (UIButton *)folllowButton
+- (UIButton *)followButton
 {
-    if (!_folllowButton) {
-        _folllowButton = [UIButton new];
-        _folllowButton.layer.cornerRadius = 12;
-        _folllowButton.layer.masksToBounds = YES;
-        [_folllowButton setTitle:@"+关注" forState:UIControlStateNormal];
+    if (!_followButton) {
+        _followButton = [[UIButton alloc] init];
+        _followButton.layer.cornerRadius = 5;
+        _followButton.layer.masksToBounds = YES;
+        
+        _followButton.backgroundColor = [UIColor orangeColor];
+        _followButton.titleLabel.textColor = [UIColor whiteColor];
+        _followButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_followButton setTitle:@"+关注" forState:UIControlStateNormal];
+        [_followButton setTitle:@"已关注" forState:UIControlStateSelected];
+        [_followButton addTarget:self action:@selector(followButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _folllowButton;
+    return _followButton;
 }
 
 - (UILabel *)contentlabel
@@ -294,6 +436,8 @@
 {
     if (!_likeIcon) {
         _likeIcon = [UIImageView new];
+        _likeIcon.userInteractionEnabled = YES;
+        [_likeIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeIconDidClicked:)]];
         _likeIcon.image = [UIImage imageNamed:@"like"];
     }
     return _likeIcon;
@@ -328,13 +472,51 @@
     return _commentCountLabel;
 }
 
-- (MINGCommentView *)commentView
+- (UIView *)commentView
 {
     if (!_commentView) {
-        MINGCommentViewModel *viewModel = [[MINGCommentViewModel alloc] initWithContentType:MINGContentTypeTweets eventId:self.viewModel.tweetsItem.tweets.tweetsId];
-        _commentView = [[MINGCommentView alloc] initWithViewModel:viewModel];
+        _commentView = [[UIView alloc] init];
+        _commentView.backgroundColor = [UIColor whiteColor];
+        _commentView.userInteractionEnabled = YES;
     }
     return _commentView;
+}
+
+- (UITextView *)commentInputView
+{
+    if (!_commentInputView) {
+        _commentInputView = [[UITextView alloc] init];
+        _commentInputView.backgroundColor = [UIColor colorWithHexString:@"F8F8F8"];
+        _commentInputView.layer.cornerRadius = 5;
+        _commentInputView.layer.masksToBounds = YES;
+        _commentInputView.returnKeyType = UIReturnKeyDefault;
+        _commentInputView.delegate = self;
+        
+    }
+    return _commentInputView;
+}
+
+- (UIButton *)sendButton
+{
+    if (!_sendButton) {
+        _sendButton = [[UIButton alloc] init];
+        _sendButton.backgroundColor = [UIColor orangeColor];
+        _sendButton.layer.cornerRadius = 5;
+        _sendButton.layer.masksToBounds = YES;
+        _sendButton.titleLabel.textColor = [UIColor whiteColor];
+        _sendButton.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
+        [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [_sendButton addTarget:self action:@selector(sendButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _sendButton;
+}
+
+- (MINGCommentView *)commentListView
+{
+    if (!_commentListView) {
+        _commentListView = [[MINGCommentView alloc] initWithViewModel:self.commentViewModel];
+    }
+    return _commentListView;
 }
 
 

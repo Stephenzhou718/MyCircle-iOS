@@ -56,7 +56,11 @@ UITableViewDataSource
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     }];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self refreshTweetsItems];
 }
 
@@ -112,7 +116,7 @@ UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MINGTweetsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MINGTweetsTableViewCell" forIndexPath:indexPath];
-    MINGTweetsItem *tweetsItem = self.viewModel.tweetsItems[indexPath.row];
+    MINGTweetsItem *tweetsItem = [self.viewModel.tweetsItems objectAtIndex:indexPath.row];
     [cell.authorAvatar sd_setImageWithURL:[NSURL URLWithString:tweetsItem.author.headUrl]];
     cell.authorNameLabel.text = tweetsItem.author.nickname;
     cell.timeLabel.text = [MINGTools converTimeStampToString:tweetsItem.tweets.time];
