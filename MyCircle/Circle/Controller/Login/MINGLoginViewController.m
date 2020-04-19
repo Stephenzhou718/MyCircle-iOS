@@ -57,10 +57,10 @@
         [self.navigationController pushViewController:controller animated:YES];
     }];
     
-    [[self.viewModel.loginCommand.executionSignals switchToLatest] subscribeError:^(NSError * _Nullable error) {
+    [self.viewModel.loginCommand.errors subscribeNext:^(NSError * _Nullable x) {
         @strongify(self)
-        NSString *msg = [error.userInfo objectForKey:NSLocalizedDescriptionKey];
-        [self.view makeToast:msg];
+        NSString *msg = [x.userInfo objectForKey:NSLocalizedDescriptionKey];
+        [self.view makeToast:msg duration:2 position:CSToastPositionCenter];
     }];
 }
 
@@ -133,7 +133,7 @@
         _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"Login" forState:UIControlStateNormal];
         [_loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_loginButton addTarget:self action:@selector(registerButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_loginButton addTarget:self action:@selector(loginButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginButton;
 }

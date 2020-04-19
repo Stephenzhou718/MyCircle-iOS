@@ -47,9 +47,9 @@
         [self.navigationController pushViewController:controller animated:YES];
     }];
     
-    [[self.viewModel.registerCommand.executionSignals switchToLatest] subscribeError:^(NSError * _Nullable error) {
+    [self.viewModel.registerCommand.errors subscribeNext:^(NSError * _Nullable x) {
         @strongify(self)
-        [self.view makeToast:self.viewModel.errorMsg duration:1 position:CSToastPositionCenter];
+        [self.view makeToast:self.viewModel.errorMsg duration:2 position:CSToastPositionCenter];
     }];
 }
 
